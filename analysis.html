@@ -1,0 +1,2374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PowerTechs — The 10-Year Workforce Outlook</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg: #f8f6f3;
+            --bg-alt: #f0eeeb;
+            --glass: rgba(255, 255, 255, 0.42);
+            --glass-border: rgba(0, 0, 0, 0.05);
+            --glass-glow: rgba(255, 255, 255, 0.7);
+            --ink: #1c1c1c;
+            --ink-2: #3a3a3a;
+            --ink-3: #6b6b6b;
+            --ink-4: #9a9a9a;
+            --accent: #1a6b5a;
+            --accent-soft: rgba(26, 107, 90, 0.08);
+            --warm: #c17f3e;
+            --warm-soft: rgba(193, 127, 62, 0.1);
+            --red: #b84233;
+            --red-soft: rgba(184, 66, 51, 0.08);
+            --green: #2a7c5f;
+            --green-soft: rgba(42, 124, 95, 0.08);
+            --blue: #3a6ea5;
+            --blue-soft: rgba(58, 110, 165, 0.08);
+            --purple: #6b5b95;
+            --purple-soft: rgba(107, 91, 149, 0.08);
+            --serif: 'Instrument Serif', Georgia, serif;
+            --sans: 'Space Grotesk', system-ui, sans-serif;
+            --radius: 24px;
+            --radius-sm: 16px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--sans);
+            background: var(--bg);
+            color: var(--ink);
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.025;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        /* NAV */
+        nav {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 100;
+            padding: 12px 32px;
+            border-radius: 100px;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(24px) saturate(200%);
+            -webkit-backdrop-filter: blur(24px) saturate(200%);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+            display: flex;
+            align-items: center;
+            gap: 36px;
+        }
+
+        .nav-logo {
+            font-family: var(--serif);
+            font-size: 1.2rem;
+        }
+
+        .nav-logo span {
+            color: var(--accent);
+        }
+
+        .nav-logo a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+        }
+
+        .nav-links a {
+            color: var(--ink-4);
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--ink);
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.82rem;
+            font-weight: 500;
+        }
+
+        .back-link svg {
+            width: 14px;
+            height: 14px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+        }
+
+        /* TYPOGRAPHY */
+        .eyebrow {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .eyebrow::before {
+            content: '';
+            width: 24px;
+            height: 1px;
+            background: var(--accent);
+        }
+
+        .section-title {
+            font-family: var(--serif);
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            font-weight: 400;
+            letter-spacing: -0.5px;
+            margin-bottom: 12px;
+            line-height: 1.1;
+        }
+
+        .section-desc {
+            font-size: 0.95rem;
+            color: var(--ink-3);
+            max-width: 520px;
+            margin-bottom: 40px;
+            line-height: 1.7;
+        }
+
+        /* GLASS */
+        .glass {
+            background: var(--glass);
+            backdrop-filter: blur(30px) saturate(180%);
+            -webkit-backdrop-filter: blur(30px) saturate(180%);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03), 0 4px 16px rgba(0, 0, 0, 0.03), inset 0 1px 0 var(--glass-glow);
+        }
+
+        /* TABLES */
+        .table-wrap {
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .glass-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.84rem;
+        }
+
+        .glass-table thead th {
+            text-align: left;
+            padding: 14px 18px;
+            color: var(--ink-4);
+            font-weight: 600;
+            font-size: 0.68rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .glass-table tbody td {
+            padding: 14px 18px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+            color: var(--ink-2);
+        }
+
+        .glass-table tbody td:first-child {
+            color: var(--ink);
+            font-weight: 500;
+        }
+
+        .glass-table tbody tr {
+            transition: background 0.3s;
+        }
+
+        .glass-table tbody tr:hover {
+            background: rgba(0, 0, 0, 0.015);
+        }
+
+        /* BADGES */
+        .badge {
+            display: inline-flex;
+            padding: 4px 12px;
+            border-radius: 100px;
+            font-size: 0.72rem;
+            font-weight: 600;
+        }
+
+        .badge-green {
+            background: var(--green-soft);
+            color: var(--green);
+        }
+
+        .badge-blue {
+            background: var(--blue-soft);
+            color: var(--blue);
+        }
+
+        .badge-warm {
+            background: var(--warm-soft);
+            color: var(--warm);
+        }
+
+        .badge-red {
+            background: var(--red-soft);
+            color: var(--red);
+        }
+
+        .badge-accent {
+            background: var(--accent-soft);
+            color: var(--accent);
+        }
+
+        .badge-purple {
+            background: var(--purple-soft);
+            color: var(--purple);
+        }
+
+        /* TRANSITION CARDS */
+        .tc-card {
+            padding: 32px;
+            margin-bottom: 24px;
+        }
+
+        .tc-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .tc-pill {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 100px;
+            background: rgba(0, 0, 0, 0.03);
+            font-weight: 500;
+            font-size: 0.85rem;
+        }
+
+        .tc-arrow {
+            color: var(--accent);
+            opacity: 0.4;
+        }
+
+        .tc-fit {
+            margin-left: auto;
+        }
+
+        .tc-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .tc-stat {
+            text-align: center;
+            padding: 16px;
+            border-radius: var(--radius-sm);
+            background: rgba(0, 0, 0, 0.02);
+            border: 1px solid rgba(0, 0, 0, 0.03);
+        }
+
+        .tc-stat .val {
+            font-family: var(--serif);
+            font-size: 1.3rem;
+        }
+
+        .tc-stat .lbl {
+            font-size: 0.65rem;
+            color: var(--ink-4);
+            margin-top: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .cert-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin: 8px 0;
+        }
+
+        .cert-tag {
+            padding: 4px 12px;
+            border-radius: 100px;
+            font-size: 0.72rem;
+            font-weight: 500;
+            background: var(--accent-soft);
+            color: var(--accent);
+            border: 1px solid rgba(26, 107, 90, 0.08);
+        }
+
+        .cert-tag.needed {
+            background: var(--warm-soft);
+            color: var(--warm);
+            border-color: rgba(193, 127, 62, 0.08);
+        }
+
+        .learn-unlearn {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-top: 20px;
+        }
+
+        .lu-box {
+            padding: 20px;
+            border-radius: var(--radius-sm);
+        }
+
+        .lu-learn {
+            background: rgba(42, 124, 95, 0.04);
+            border: 1px solid rgba(42, 124, 95, 0.1);
+        }
+
+        .lu-unlearn {
+            background: rgba(184, 66, 51, 0.03);
+            border: 1px solid rgba(184, 66, 51, 0.08);
+        }
+
+        .lu-box h5 {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .lu-learn h5 {
+            color: var(--green);
+        }
+
+        .lu-unlearn h5 {
+            color: var(--red);
+        }
+
+        .lu-box li {
+            font-size: 0.82rem;
+            color: var(--ink-2);
+            margin-bottom: 6px;
+            list-style: none;
+            padding-left: 18px;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        .lu-learn li::before {
+            content: '+';
+            color: var(--green);
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+        }
+
+        .lu-unlearn li::before {
+            content: '−';
+            color: var(--red);
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+        }
+
+        /* ARCHETYPE CARDS */
+        .arch-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .arch-card {
+            padding: 28px;
+        }
+
+        .arch-card h4 {
+            font-family: var(--serif);
+            font-size: 1.05rem;
+            margin-bottom: 6px;
+        }
+
+        .arch-card .arch-sector {
+            font-size: 0.72rem;
+            color: var(--ink-4);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 600;
+            margin-bottom: 14px;
+        }
+
+        .arch-card p {
+            font-size: 0.82rem;
+            color: var(--ink-3);
+            line-height: 1.5;
+        }
+
+        .skill-list {
+            list-style: none;
+            margin: 12px 0;
+        }
+
+        .skill-list li {
+            font-size: 0.82rem;
+            color: var(--ink-2);
+            padding: 4px 0;
+            padding-left: 16px;
+            position: relative;
+        }
+
+        .skill-list li::before {
+            content: '·';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        footer {
+            padding: 48px 0;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            text-align: center;
+            color: var(--ink-4);
+            font-size: 0.8rem;
+        }
+
+        /* ANIMATIONS */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media(max-width:900px) {
+            .tc-stats {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .learn-unlearn {
+                grid-template-columns: 1fr;
+            }
+
+            .arch-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-logo"><a href="stakeholder_site.html">Power<span>Techs</span></a></div>
+        <div class="nav-links">
+            <a href="#outlook">2035 Outlook</a>
+            <a href="#certifications">Certifications</a>
+            <a href="#archetypes">Archetypes</a>
+            <a href="#transitions">Transitions</a>
+        </div>
+    </nav>
+
+    <!-- HEADER -->
+    <section style="padding-top:120px; padding-bottom:40px;">
+        <div class="container">
+            <a href="stakeholder_site.html" class="back-link"><svg viewBox="0 0 24 24">
+                    <path d="M19 12H5m6 6-6-6 6-6" />
+                </svg> Back to Overview</a>
+            <h1
+                style="font-family:var(--serif); font-size:clamp(2rem,4vw,3rem); font-weight:400; margin-top:24px; letter-spacing:-0.5px;">
+                Complete <em style="color:var(--accent);">Analysis</em>
+            </h1>
+            <p style="color:var(--ink-3); max-width:500px; margin-top:12px; line-height:1.7;">
+                The complete 89-task database, certification gaps, worker archetypes, and all 10 modeled transitions.
+            </p>
+        </div>
+    </section>
+
+    <!-- ═══════════════════ 2035 OUTLOOK (TASKS & GAPS) ═══════════════════ -->
+    <section id="outlook" style="background:var(--bg-alt);">
+        <div class="container">
+            <div class="eyebrow reveal">The Database</div>
+            <h2 class="section-title reveal">89 Emerging Tasks</h2>
+            <p class="section-desc reveal">The complete, validated database of tasks coming to the Construction, Energy,
+                and Transportation sectors.</p>
+            <div class="glass reveal"
+                style="padding:20px; margin-bottom:24px; display:flex; gap:16px; align-items:center;">
+                <input type="text" id="taskSearch" onkeyup="filterTasks()"
+                    placeholder="Search tasks, trends, or sectors..."
+                    style="flex:1; padding:12px 16px; border:1px solid var(--glass-border); border-radius:8px; background:rgba(255,255,255,0.7); font-family:var(--sans); font-size:0.9rem; outline:none;">
+                <select id="taskFilter" onchange="filterTasks()"
+                    style="padding:12px 16px; border:1px solid var(--glass-border); border-radius:8px; background:rgba(255,255,255,0.7); font-family:var(--sans); font-size:0.9rem; outline:none; cursor:pointer;">
+                    <option value="all">All Subsectors</option>
+                    <option value="Construction - Commercial">Construction - Commercial</option>
+                    <option value="Construction - Data Center">Construction - Data Center</option>
+                    <option value="Construction - Heavy and Civil">Construction - Heavy and Civil</option>
+                    <option value="Construction - Modular & Prefab">Construction - Modular & Prefab</option>
+                    <option value="Construction - Residential">Construction - Residential</option>
+                    <option value="Energy - Downstream">Energy - Downstream</option>
+                    <option value="Energy - Midstream">Energy - Midstream</option>
+                    <option value="Energy - Upstream">Energy - Upstream</option>
+                    <option value="Energy - Utilities">Energy - Utilities</option>
+                    <option value="Transportation - Last-mile">Transportation - Last-mile</option>
+                    <option value="Transportation - Long-haul">Transportation - Long-haul</option>
+                    <option value="Transportation - Rail & Intermodal">Transportation - Rail & Intermodal</option>
+                </select>
+            </div>
+            <div class="glass table-wrap reveal" style="max-height: 500px; overflow-y: auto; margin-bottom:48px;">
+                <table class="glass-table" id="tasksTable">
+                    <thead
+                        style="position: sticky; top: 0; background: rgba(255,255,255,0.9); z-index: 10; box-shadow: 0 1px 0 rgba(0,0,0,0.05);">
+                        <tr>
+                            <th style="width:35%">Task Statement</th>
+                            <th style="width:15%">Subsector</th>
+                            <th style="width:15%">Tech Trend</th>
+                            <th>Horizon</th>
+                            <th>Skill Shift</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="task-row" data-subsector="Construction - Residential">
+                            <td style="font-weight:500;">Calibrate and operate robotic framing assembly arms in off-site
+                                manufacturing facilities to construct residential wall panels.</td>
+                            <td style="color:var(--ink-3);">Construction - Residential</td>
+                            <td><span class="badge badge-blue">Modular & Prefabricated Construction</span></td>
+                            <td><span class="badge badge-green">Near (2025-27)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Shift from manual physical framing to
+                                setting parameters and monitoring automated framing machinery.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Construction - Residential">
+                            <td style="font-weight:500;">Monitor concrete extrusion rates and structural integrity of
+                                3D-printed residential walls during automated pours.</td>
+                            <td style="color:var(--ink-3);">Construction - Residential</td>
+                            <td><span class="badge badge-blue">3D-Printed Housing</span></td>
+                            <td><span class="badge badge-warm">Mid (2027-30)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Understanding material science of
+                                fast-curing concrete and robotic gantry kinematics.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Construction - Residential">
+                            <td style="font-weight:500;">Install and test aerogel insulation panels and phase-change
+                                materials to achieve passive house standard thermal envelopes.</td>
+                            <td style="color:var(--ink-3);">Construction - Residential</td>
+                            <td><span class="badge badge-blue">Energy-Efficient Building Envelope</span></td>
+                            <td><span class="badge badge-green">Near (2025-27)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Handling advanced nanomaterials and
+                                precision sealing techniques.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Construction - Commercial">
+                            <td style="font-weight:500;">Sync daily LiDAR scans from job sites to central BIM digital
+                                twins to run automated clash detection and variance reports.</td>
+                            <td style="color:var(--ink-3);">Construction - Commercial</td>
+                            <td><span class="badge badge-blue">BIM / Digital Twin Integration</span></td>
+                            <td><span class="badge badge-green">Near (2025-27)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Translating point-cloud data anomalies
+                                into actionable field directives.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Construction - Commercial">
+                            <td style="font-weight:500;">Deploy autonomous indoor drone swarms to map completed HVAC and
+                                electrical routing prior to ceiling installation.</td>
+                            <td style="color:var(--ink-3);">Construction - Commercial</td>
+                            <td><span class="badge badge-blue">Autonomous Drones</span></td>
+                            <td><span class="badge badge-green">Near (2025-27)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Fleet programming and spatial data
+                                processing.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Construction - Heavy and Civil">
+                            <td style="font-weight:500;">Program geofencing boundaries and cut/fill parameters into
+                                autonomous earthmoving fleet control software.</td>
+                            <td style="color:var(--ink-3);">Construction - Heavy and Civil</td>
+                            <td><span class="badge badge-blue">Autonomous Vehicles & Drones</span></td>
+                            <td><span class="badge badge-warm">Mid (2027-30)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Moving from in-cab manual operation to
+                                remote fleet programming and supervisory control.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Construction - Heavy and Civil">
+                            <td style="font-weight:500;">Operate robotic shotcrete nozzles for the automated structural
+                                repair of aging retaining walls and culverts.</td>
+                            <td style="color:var(--ink-3);">Construction - Heavy and Civil</td>
+                            <td><span class="badge badge-blue">3D Printing for Infrastructure</span></td>
+                            <td><span class="badge badge-warm">Mid (2027-30)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Supervising automated concrete delivery
+                                systems and monitoring curing parameters.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Construction - Heavy and Civil">
+                            <td style="font-weight:500;">Embed and network strain gauge and piezometer sensors into
+                                fresh concrete pours for highway overpasses.</td>
+                            <td style="color:var(--ink-3);">Construction - Heavy and Civil</td>
+                            <td><span class="badge badge-blue">IoT-Enabled Infrastructure</span></td>
+                            <td><span class="badge badge-green">Near (2025-27)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Installing structural health monitoring
+                                systems within harsh civil engineering environments.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Construction - Data Center">
+                            <td style="font-weight:500;">Install and pressure-test direct-to-chip liquid cooling
+                                manifolds in retrofitted office telecom closets.</td>
+                            <td style="color:var(--ink-3);">Construction - Data Center</td>
+                            <td><span class="badge badge-blue">Liquid Cooling Systems</span></td>
+                            <td><span class="badge badge-green">Near (2025-27)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Adhering to zero-leak tolerance standards
+                                in high-voltage server environments.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Construction - Data Center">
+                            <td style="font-weight:500;">Maintain and flush primary and secondary heat exchanger loops
+                                for massive-scale immersion cooling tanks.</td>
+                            <td style="color:var(--ink-3);">Construction - Data Center</td>
+                            <td><span class="badge badge-blue">Liquid Cooling Systems</span></td>
+                            <td><span class="badge badge-warm">Mid (2027-30)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Handling specialized dielectric fluids and
+                                high-capacity thermal transfer mechanics.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Construction - Data Center">
+                            <td style="font-weight:500;">Configure AI-governed smart switchgear to dynamically route
+                                power based on real-time server cluster thermal loads.</td>
+                            <td style="color:var(--ink-3);">Construction - Data Center</td>
+                            <td><span class="badge badge-blue">AI-Optimized Power Distribution</span></td>
+                            <td><span class="badge badge-warm">Mid (2027-30)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Programming logic controllers integrated
+                                with AI workload forecasting.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Construction - Modular & Prefab">
+                            <td style="font-weight:500;">Scan completed volumetric modules with LiDAR to ensure
+                                millimeter-level compliance with primary architectural digital twin.</td>
+                            <td style="color:var(--ink-3);">Construction - Modular & Prefab</td>
+                            <td><span class="badge badge-blue">Digital Twin for Module Quality Control</span></td>
+                            <td><span class="badge badge-green">Near (2025-27)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Interpreting point-cloud variance reports
+                                against primary BIM models.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Energy - Upstream">
+                            <td style="font-weight:500;">Install and calibrate wireless acoustic sensors on downhole
+                                casing to transmit real-time fracture propagation data.</td>
+                            <td style="color:var(--ink-3);">Energy - Upstream</td>
+                            <td><span class="badge badge-blue">Industrial IoT (IIoT)</span></td>
+                            <td><span class="badge badge-warm">Mid (2027-30)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Deploying edge-computing sensor nodes in
+                                extreme high-pressure environments.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Energy - Upstream">
+                            <td style="font-weight:500;">Monitor autonomous offshore drilling rig logic controllers from
+                                onshore remote operations centers.</td>
+                            <td style="color:var(--ink-3);">Energy - Upstream</td>
+                            <td><span class="badge badge-blue">Autonomous Systems</span></td>
+                            <td><span class="badge badge-purple">Long (2030-35)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Transitioning from physical rig operation
+                                to multi-site remote SCADA supervision.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Energy - Upstream">
+                            <td style="font-weight:500;">Analyze real-time seismic digital twin updates to dynamically
+                                adjust directional drilling trajectories.</td>
+                            <td style="color:var(--ink-3);">Energy - Upstream</td>
+                            <td><span class="badge badge-blue">Digital Twins</span></td>
+                            <td><span class="badge badge-green">Near (2025-27)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Integrating continuous real-time 4D
+                                seismic telemetry into well path optimization algorithms.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Energy - Midstream">
+                            <td style="font-weight:500;">Supervise beyond-visual-line-of-sight (BVLOS) autonomous drone
+                                swarms for pipeline leak detection utilizing methane-sniffing payloads.</td>
+                            <td style="color:var(--ink-3);">Energy - Midstream</td>
+                            <td><span class="badge badge-blue">Autonomous Drones</span></td>
+                            <td><span class="badge badge-green">Near (2025-27)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Managing automated aerial fleets and
+                                interpreting spectral atmospheric data.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Energy - Midstream">
+                            <td style="font-weight:500;">Review ML-generated predictive maintenance schedules for
+                                compressor stations and dispatch repair crews before calculated failure points.</td>
+                            <td style="color:var(--ink-3);">Energy - Midstream</td>
+                            <td><span class="badge badge-blue">Predictive Analytics</span></td>
+                            <td><span class="badge badge-green">Near (2025-27)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Trusting and validating AI probabilistic
+                                failure models over traditional calendar maintenance.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Energy - Downstream">
+                            <td style="font-weight:500;">Simulate emergency shutdown (ESD) procedures in a refinery
+                                digital twin before executing physical logic controller updates.</td>
+                            <td style="color:var(--ink-3);">Energy - Downstream</td>
+                            <td><span class="badge badge-blue">Digital Twins</span></td>
+                            <td><span class="badge badge-green">Near (2025-27)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Using virtual simulation environments to
+                                validate high-risk operational changes.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Energy - Downstream">
+                            <td style="font-weight:500;">Monitor and adjust amine solvent flow rates in post-combustion
+                                carbon capture units to optimize CO2 absorption.</td>
+                            <td style="color:var(--ink-3);">Energy - Downstream</td>
+                            <td><span class="badge badge-blue">Carbon Capture & Sequestration</span></td>
+                            <td><span class="badge badge-green">Near (2025-27)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Managing novel chemical solvents and
+                                high-pressure supercritical CO2 compressors.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Energy - Utilities">
+                            <td style="font-weight:500;">Perform thermal runaway containment protocols and cell-level
+                                balancing on utility-scale lithium-ion battery energy storage systems (BESS).</td>
+                            <td style="color:var(--ink-3);">Energy - Utilities</td>
+                            <td><span class="badge badge-blue">Battery Storage & Grid Storage</span></td>
+                            <td><span class="badge badge-green">Near (2025-27)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">High-voltage DC storage maintenance and
+                                localized thermal management.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Energy - Utilities">
+                            <td style="font-weight:500;">Inspect and maintain hydrogen electrolyzers and associated
+                                cryogenic storage vessels at dedicated green hydrogen production facilities.</td>
+                            <td style="color:var(--ink-3);">Energy - Utilities</td>
+                            <td><span class="badge badge-blue">Hydrogen & Fuel Cells</span></td>
+                            <td><span class="badge badge-warm">Mid (2027-30)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Handling cryogenic fluids and mitigating
+                                extreme flammability risks.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Energy - Utilities">
+                            <td style="font-weight:500;">Configure bi-directional power flow inverters at residential
+                                substations to manage variable load from neighborhood vehicle-to-grid (V2G) discharging.
+                            </td>
+                            <td style="color:var(--ink-3);">Energy - Utilities</td>
+                            <td><span class="badge badge-blue">Smart Grid & Advanced Metering</span></td>
+                            <td><span class="badge badge-green">Near (2025-27)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Managing decentralized, two-way power
+                                flows instead of traditional centralized distribution.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Transportation - Long-haul">
+                            <td style="font-weight:500;">Monitor telemetry from Level 4 autonomous long-haul freight
+                                trucks from a remote operations center to provide human-in-the-loop override during
+                                adverse weather.</td>
+                            <td style="color:var(--ink-3);">Transportation - Long-haul</td>
+                            <td><span class="badge badge-blue">Autonomous Vehicles</span></td>
+                            <td><span class="badge badge-warm">Mid (2027-30)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Transitioning from physical vehicle
+                                operation to remote multi-vehicle teleoperation.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Transportation - Long-haul">
+                            <td style="font-weight:500;">Optimize route planning for Class 8 electric semi-trucks
+                                utilizing real-time charging network availability and topographic battery drain models.
+                            </td>
+                            <td style="color:var(--ink-3);">Transportation - Long-haul</td>
+                            <td><span class="badge badge-blue">Electric Vehicles</span></td>
+                            <td><span class="badge badge-green">Near (2025-27)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Factoring complex charging curve
+                                calculations and weather variables into logistical planning.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Transportation - Last-mile">
+                            <td style="font-weight:500;">Load and dispatch ground-based autonomous delivery droids from
+                                urban micro-fulfillment centers.</td>
+                            <td style="color:var(--ink-3);">Transportation - Last-mile</td>
+                            <td><span class="badge badge-blue">Autonomous Vehicles & Drones</span></td>
+                            <td><span class="badge badge-green">Near (2025-27)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Managing automated fleet logistics and
+                                diagnosing droid hardware faults.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Transportation - Last-mile">
+                            <td style="font-weight:500;">Program and monitor aerial delivery drones from mobile
+                                launching platforms deployed in sub-urban delivery zones.</td>
+                            <td style="color:var(--ink-3);">Transportation - Last-mile</td>
+                            <td><span class="badge badge-blue">Autonomous Vehicles & Drones</span></td>
+                            <td><span class="badge badge-warm">Mid (2027-30)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">UAV payload management and automated
+                                flight path oversight.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Transportation - Rail & Intermodal">
+                            <td style="font-weight:500;">Interpret predictive maintenance alerts from wayside wheel
+                                impact load detectors to route locomotives to repair bays proactively.</td>
+                            <td style="color:var(--ink-3);">Transportation - Rail & Intermodal</td>
+                            <td><span class="badge badge-blue">Industrial IoT (IIoT)</span></td>
+                            <td><span class="badge badge-green">Near (2025-27)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Data-driven maintenance scheduling based
+                                on IoT sensor streams rather than calendar intervals.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Transportation - Rail & Intermodal">
+                            <td style="font-weight:500;">Supervise automated port terminal operations, including
+                                autonomous straddle carriers and robotic gantry cranes unloading shipping containers.
+                            </td>
+                            <td style="color:var(--ink-3);">Transportation - Rail & Intermodal</td>
+                            <td><span class="badge badge-blue">Autonomous Systems</span></td>
+                            <td><span class="badge badge-green">Near (2025-27)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Monitoring complex automated intermodal
+                                orchestration systems from a central control hub.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Construction - Commercial">
+                            <td style="font-weight:500;">Install and configure environmental sensor arrays integrated
+                                into commercial HVAC units to dynamically adjust fresh air intake based on real-time IAQ
+                                (Indoor Air Quality) readings.</td>
+                            <td style="color:var(--ink-3);">Construction - Commercial</td>
+                            <td><span class="badge badge-blue">Industrial IoT (IIoT)</span></td>
+                            <td><span class="badge badge-green">Near (2025-27)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Transitioning from thermostat control to
+                                interpreting multi-variable sensor input programming.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Construction - Heavy and Civil">
+                            <td style="font-weight:500;">Mix and apply carbon nanotube infused asphalt for self-healing
+                                and conductive paving surfaces on smart highways.</td>
+                            <td style="color:var(--ink-3);">Construction - Heavy and Civil</td>
+                            <td><span class="badge badge-blue">Nanomaterials</span></td>
+                            <td><span class="badge badge-purple">Long (2030-35)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Handling advanced binding agents and
+                                managing conductive material curing temperatures.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Energy - Utilities">
+                            <td style="font-weight:500;">Implement and verify quantum-resistant encryption protocols on
+                                legacy SCADA systems governing regional transmission substations.</td>
+                            <td style="color:var(--ink-3);">Energy - Utilities</td>
+                            <td><span class="badge badge-blue">Quantum-Resistant Cryptography</span></td>
+                            <td><span class="badge badge-warm">Mid (2027-30)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Applying post-quantum lattice-based
+                                encryption architectures to industrial control systems.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Transportation - Long-haul">
+                            <td style="font-weight:500;">Conduct high-pressure leak detection protocols on Class 8
+                                hydrogen fuel cell truck storage tanks utilizing specialized sniffing equipment.</td>
+                            <td style="color:var(--ink-3);">Transportation - Long-haul</td>
+                            <td><span class="badge badge-blue">Hydrogen & Fuel Cells</span></td>
+                            <td><span class="badge badge-warm">Mid (2027-30)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Servicing 700-bar pressurized vessel
+                                systems and identifying odorless gas containment failures.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Energy - Downstream">
+                            <td style="font-weight:500;">Calibrate and maintain intrinsically safe AR headsets used by
+                                field technicians for guided maintenance in explosive atmospheres.</td>
+                            <td style="color:var(--ink-3);">Energy - Downstream</td>
+                            <td><span class="badge badge-blue">Advanced Sensors & Wearables</span></td>
+                            <td><span class="badge badge-warm">Mid (2027-30)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Managing wearable IoT devices within Class
+                                1 Div 1 hazardous environments.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Construction - Commercial">
+                            <td style="font-weight:500;">Supervise autonomous robotic drywall finishers traversing
+                                commercial floorplates to mud and tape joints overnight.</td>
+                            <td style="color:var(--ink-3);">Construction - Commercial</td>
+                            <td><span class="badge badge-blue">Robotics in Factory Assembly Lines</span></td>
+                            <td><span class="badge badge-green">Near (2025-27)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Monitoring robotic trajectory optimization
+                                and refilling raw material hoppers.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Construction - Heavy and Civil">
+                            <td style="font-weight:500;">Install and torque tension carbon-fiber reinforced polymer
+                                (CFRP) tendons during seismic bridge retrofitting operations.</td>
+                            <td style="color:var(--ink-3);">Construction - Heavy and Civil</td>
+                            <td><span class="badge badge-blue">Advanced Composites</span></td>
+                            <td><span class="badge badge-green">Near (2025-27)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Handling advanced composite materials with
+                                differing shear and tensile tolerances than traditional structural steel.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Transportation - Rail & Intermodal">
+                            <td style="font-weight:500;">Perform high-pressure hydrogen refueling operations on
+                                next-generation fuel cell locomotives at railyard distribution hubs.</td>
+                            <td style="color:var(--ink-3);">Transportation - Rail & Intermodal</td>
+                            <td><span class="badge badge-blue">Hydrogen & Fuel Cells</span></td>
+                            <td><span class="badge badge-purple">Long (2030-35)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Managing cryogenic fuel transfer protocols
+                                and mitigating extreme pressure blowout risks.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Energy - Utilities">
+                            <td style="font-weight:500;">Audit smart contract execution logs for peer-to-peer
+                                neighborhood residential solar energy trading on the local microgrid.</td>
+                            <td style="color:var(--ink-3);">Energy - Utilities</td>
+                            <td><span class="badge badge-blue">Blockchain & Distributed Systems</span></td>
+                            <td><span class="badge badge-warm">Mid (2027-30)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Understanding distributed ledger
+                                transaction anomalies instead of just physical electron flow.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Energy - Upstream">
+                            <td style="font-weight:500;">Operate industrial metal 3D printers on offshore rigs to
+                                fabricate high-wear replacement drill bit components on demand.</td>
+                            <td style="color:var(--ink-3);">Energy - Upstream</td>
+                            <td><span class="badge badge-blue">Additive Manufacturing (3D Printing)</span></td>
+                            <td><span class="badge badge-warm">Mid (2027-30)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Transitioning from subtractive CNC
+                                machining to handling powdered metal sintering in maritime environments.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Construction - Modular & Prefab">
+                            <td style="font-weight:500;">Perform final QA/QC sign-off on factory-built volumetric
+                                modules using mixed-reality headsets overlaying the 3D BIM model onto the physical unit.
+                            </td>
+                            <td style="color:var(--ink-3);">Construction - Modular & Prefab</td>
+                            <td><span class="badge badge-blue">Digital Twins</span></td>
+                            <td><span class="badge badge-green">Near (2025-27)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Comparing physical builds against digital
+                                tolerances using spatial computing.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Transportation - Long-haul">
+                            <td style="font-weight:500;">Analyze AI-generated predictive tire wear models for Class 8
+                                tractor-trailers to optimize replacement schedules across regional depots.</td>
+                            <td style="color:var(--ink-3);">Transportation - Long-haul</td>
+                            <td><span class="badge badge-blue">Predictive Analytics</span></td>
+                            <td><span class="badge badge-green">Near (2025-27)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Shifting from tread depth gauge
+                                inspections to managing fleet-wide probabilistic failure algorithms.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Construction - Residential">
+                            <td style="font-weight:500;">Utilize MR headsets to visualize and trace complex MEP
+                                (Mechanical, Electrical, and Plumbing) rough-ins within physical stud framing before
+                                drywall installation.</td>
+                            <td style="color:var(--ink-3);">Construction - Residential</td>
+                            <td><span class="badge badge-blue">Mixed Reality (MR)</span></td>
+                            <td><span class="badge badge-warm">Mid (2027-30)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Navigating spatial computing interfaces
+                                while conducting physical site inspections.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Construction - Residential">
+                            <td style="font-weight:500;">Install and seal self-healing concrete foundations that utilize
+                                embedded limestone-producing bacteria to autonomously repair micro-cracks.</td>
+                            <td style="color:var(--ink-3);">Construction - Residential</td>
+                            <td><span class="badge badge-blue">Advanced Materials</span></td>
+                            <td><span class="badge badge-purple">Long (2030-35)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Handling biological admixtures and precise
+                                moisture control during the curing process.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Construction - Residential">
+                            <td style="font-weight:500;">Guide semi-autonomous lifting cobots to position and secure
+                                heavy engineered lumber beams during residential framing.</td>
+                            <td style="color:var(--ink-3);">Construction - Residential</td>
+                            <td><span class="badge badge-blue">Collaborative Robots (Cobots)</span></td>
+                            <td><span class="badge badge-green">Near (2025-27)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Coordinating physical movements with
+                                load-sensing robotic assistants.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Construction - Commercial">
+                            <td style="font-weight:500;">Calibrate and monitor bio-metric smart helmets for commercial
+                                construction crews to detect early signs of heat stress and fatigue.</td>
+                            <td style="color:var(--ink-3);">Construction - Commercial</td>
+                            <td><span class="badge badge-blue">Smart Sensors & Wearables</span></td>
+                            <td><span class="badge badge-green">Near (2025-27)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Interpreting real-time biometric telemetry
+                                across distributed workforces.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Construction - Commercial">
+                            <td style="font-weight:500;">Scan and tag commercial demolition debris using AI-assisted
+                                material passports to route steel and glass for high-value upcycling rather than
+                                landfill.</td>
+                            <td style="color:var(--ink-3);">Construction - Commercial</td>
+                            <td><span class="badge badge-blue">Circular Economy & Waste Reduction</span></td>
+                            <td><span class="badge badge-warm">Mid (2027-30)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Digital material cataloging and evaluating
+                                structural integrity of recovered components.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Construction - Heavy and Civil">
+                            <td style="font-weight:500;">Operate powered industrial exosuits to maneuver and weld
+                                heavy-gauge rebar continuous cages for massive hydroelectric dam foundations.</td>
+                            <td style="color:var(--ink-3);">Construction - Heavy and Civil</td>
+                            <td><span class="badge badge-blue">Exoskeletons</span></td>
+                            <td><span class="badge badge-warm">Mid (2027-30)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Operating and maintaining wearable robotic
+                                mobility systems under extreme load conditions.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Construction - Heavy and Civil">
+                            <td style="font-weight:500;">Supervise a swarm of autonomous micro-excavators performing
+                                precision grading for multi-acre highway interchanges.</td>
+                            <td style="color:var(--ink-3);">Construction - Heavy and Civil</td>
+                            <td><span class="badge badge-blue">Swarm Robotics</span></td>
+                            <td><span class="badge badge-purple">Long (2030-35)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Multi-agent robotic orchestration from a
+                                localized command module.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Construction - Modular & Prefab">
+                            <td style="font-weight:500;">Tune factory-floor computer vision models to identify
+                                sub-millimeter drywall taping defects as volumetric modules pass through assembly
+                                stages.</td>
+                            <td style="color:var(--ink-3);">Construction - Modular & Prefab</td>
+                            <td><span class="badge badge-blue">Computer Vision</span></td>
+                            <td><span class="badge badge-green">Near (2025-27)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Adjusting machine learning confidence
+                                thresholds for visual quality assurance.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Energy - Upstream">
+                            <td style="font-weight:500;">Deploy and control serpentine robotic inspection crawlers to
+                                traverse and map complex internal geometries of offshore drill risers.</td>
+                            <td style="color:var(--ink-3);">Energy - Upstream</td>
+                            <td><span class="badge badge-blue">Advanced Robotics</span></td>
+                            <td><span class="badge badge-warm">Mid (2027-30)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Piloting multi-articulated robotics in
+                                subsea environments.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Energy - Upstream">
+                            <td style="font-weight:500;">Inject and monitor specialized engineered microbes into
+                                depleted oil reservoirs to synthesize and extract trapped hydrocarbons (Microbial
+                                Enhanced Oil Recovery).</td>
+                            <td style="color:var(--ink-3);">Energy - Upstream</td>
+                            <td><span class="badge badge-blue">Genomics & Biotech</span></td>
+                            <td><span class="badge badge-purple">Long (2030-35)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Handling biological agents and monitoring
+                                subsurface microbial metabolisms.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Energy - Midstream">
+                            <td style="font-weight:500;">Validate custody-transfer flow meters on natural gas pipelines
+                                using blockchain-based immutable ledgers shared between midstream and downstream
+                                partners.</td>
+                            <td style="color:var(--ink-3);">Energy - Midstream</td>
+                            <td><span class="badge badge-blue">Blockchain & Distributed Systems</span></td>
+                            <td><span class="badge badge-green">Near (2025-27)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Auditing distributed ledger smart
+                                contracts tied directly to physical flow hardware.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Energy - Downstream">
+                            <td style="font-weight:500;">Operate commercial-scale advanced bioreactors converting
+                                captured industrial emissions into sustainable aviation fuel (SAF) using engineered
+                                enzymes.</td>
+                            <td style="color:var(--ink-3);">Energy - Downstream</td>
+                            <td><span class="badge badge-blue">Synthetic Biology</span></td>
+                            <td><span class="badge badge-warm">Mid (2027-30)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Managing highly sensitive biological
+                                fermentation processes alongside traditional petrochemical refinement.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Energy - Downstream">
+                            <td style="font-weight:500;">Monitor automated AI-camera feeds scanning refinery perimeters
+                                for specific volatile organic compound (VOC) vapor cloud formations.</td>
+                            <td style="color:var(--ink-3);">Energy - Downstream</td>
+                            <td><span class="badge badge-blue">Computer Vision</span></td>
+                            <td><span class="badge badge-green">Near (2025-27)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Responding to and validating algorithmic
+                                optical gas imaging alerts.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Energy - Utilities">
+                            <td style="font-weight:500;">Aggregate and dispatch thousands of distributed residential
+                                solar and storage assets as a unified block during peak grid demand windows.</td>
+                            <td style="color:var(--ink-3);">Energy - Utilities</td>
+                            <td><span class="badge badge-blue">Virtual Power Plants (VPP)</span></td>
+                            <td><span class="badge badge-green">Near (2025-27)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Managing decentralized, bi-directional
+                                energy assets via complex software orchestration architectures.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Energy - Utilities">
+                            <td style="font-weight:500;">Maintain solid-state modular multilevel converters (MMC) at
+                                terminal stations transferring multi-gigawatt offshore wind power to the onshore AC
+                                grid.</td>
+                            <td style="color:var(--ink-3);">Energy - Utilities</td>
+                            <td><span class="badge badge-blue">High-Voltage Direct Current (HVDC)</span></td>
+                            <td><span class="badge badge-warm">Mid (2027-30)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Servicing advanced solid-state power
+                                electronics operating at extremely high voltages.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Energy - Utilities">
+                            <td style="font-weight:500;">Monitor primary coolant flow parameters and neutron flux
+                                density limits in self-regulating autonomous SMRs (Small Modular Reactors) deployed at
+                                industrial sites.</td>
+                            <td style="color:var(--ink-3);">Energy - Utilities</td>
+                            <td><span class="badge badge-blue">Nuclear Microreactors</span></td>
+                            <td><span class="badge badge-purple">Long (2030-35)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Operating generation IV modular reactor
+                                systems from remote consolidated control rooms.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Transportation - Long-haul">
+                            <td style="font-weight:500;">Configure and lead close-proximity autonomous platoons of three
+                                Class 8 trucks, managing braking algorithms and aerodynamic drafting profiles.</td>
+                            <td style="color:var(--ink-3);">Transportation - Long-haul</td>
+                            <td><span class="badge badge-blue">Platooning Technology</span></td>
+                            <td><span class="badge badge-green">Near (2025-27)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Operating lead vehicles while monitoring
+                                Vehicle-to-Vehicle (V2V) telemetry connections of trailing autonomous units.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Transportation - Last-mile">
+                            <td style="font-weight:500;">Perform 3D-printed composite patching on damaged lightweight
+                                electric delivery van chassis at urban fulfillment depots.</td>
+                            <td style="color:var(--ink-3);">Transportation - Last-mile</td>
+                            <td><span class="badge badge-blue">Advanced Composites</span></td>
+                            <td><span class="badge badge-warm">Mid (2027-30)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Repairing carbon-fiber infused polymer
+                                bodies using localized additive manufacturing.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Transportation - Rail & Intermodal">
+                            <td style="font-weight:500;">Utilize yard-scale digital twins to run simulation-based
+                                disruption scenarios to optimize container restacking when automated straddle carriers
+                                encounter faults.</td>
+                            <td style="color:var(--ink-3);">Transportation - Rail & Intermodal</td>
+                            <td><span class="badge badge-blue">Digital Twins</span></td>
+                            <td><span class="badge badge-warm">Mid (2027-30)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Executing complex real-time logistical
+                                optimizations using 4D simulation models.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Transportation - Rail & Intermodal">
+                            <td style="font-weight:500;">Fit and configure IoT-enabled intelligent brake shoes on
+                                rolling stock that automatically report friction levels and thermal limits to wayside
+                                receivers.</td>
+                            <td style="color:var(--ink-3);">Transportation - Rail & Intermodal</td>
+                            <td><span class="badge badge-blue">Smart Sensors & Wearables</span></td>
+                            <td><span class="badge badge-green">Near (2025-27)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Integrating smart, data-transmitting wear
+                                parts during standard mechanical maintenance.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Energy - Utilities">
+                            <td style="font-weight:500;">Analyze AI-generated predictive wildfire models intersecting
+                                with high-risk transmission corridors to preemptively initiate targeted public safety
+                                power shutoffs (PSPS).</td>
+                            <td style="color:var(--ink-3);">Energy - Utilities</td>
+                            <td><span class="badge badge-blue">Predictive AI For Grid Resiliency</span></td>
+                            <td><span class="badge badge-green">Near (2025-27)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Executing extreme grid interventions based
+                                on predictive algorithmic forecasting.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Transportation - Long-haul">
+                            <td style="font-weight:500;">Audit highly automated smart contracts governing dynamic,
+                                real-time freight pricing executing across fragmented, decentralized owner-operator
+                                networks.</td>
+                            <td style="color:var(--ink-3);">Transportation - Long-haul</td>
+                            <td><span class="badge badge-blue">Blockchain Logistics</span></td>
+                            <td><span class="badge badge-warm">Mid (2027-30)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Validating algorithmic contracting
+                                discrepancies in distributed supply chains.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Construction - Commercial">
+                            <td style="font-weight:500;">Install and calibrate thermochromic and electrochromic smart
+                                glass panes capable of dynamically shifting tint based on centralized building
+                                automation telemetry.</td>
+                            <td style="color:var(--ink-3);">Construction - Commercial</td>
+                            <td><span class="badge badge-blue">Smart Materials</span></td>
+                            <td><span class="badge badge-warm">Mid (2027-30)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Wiring and troubleshooting low-voltage
+                                data connections integrated into structural exterior glass.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Construction - Heavy and Civil">
+                            <td style="font-weight:500;">Embed micro-electro-mechanical systems (MEMS) vibration sensors
+                                into structural steel bridge girders during the erection phase to monitor baseline
+                                resonant frequencies.</td>
+                            <td style="color:var(--ink-3);">Construction - Heavy and Civil</td>
+                            <td><span class="badge badge-blue">Advanced Semiconductors</span></td>
+                            <td><span class="badge badge-green">Near (2025-27)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Adhering precise silicon-based
+                                micro-sensors to heavy steel without compromising industrial coatings.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Construction - Modular & Prefab">
+                            <td style="font-weight:500;">Operate large-format polymer 3D printers to fabricate custom,
+                                low-run HVAC ductwork manifolds that integrate directly into prefabricated volumetric
+                                modules.</td>
+                            <td style="color:var(--ink-3);">Construction - Modular & Prefab</td>
+                            <td><span class="badge badge-blue">Additive Manufacturing (3D Printing)</span></td>
+                            <td><span class="badge badge-warm">Mid (2027-30)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Transitioning from bending sheet metal to
+                                operating large-scale additive manufacturing gantries and managing thermoplastic
+                                extrusion.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Construction - Data Center">
+                            <td style="font-weight:500;">Install and commission containerized hydrogen proton exchange
+                                membrane (PEM) fuel cells as primary backup power replacing traditional diesel generator
+                                sets.</td>
+                            <td style="color:var(--ink-3);">Construction - Data Center</td>
+                            <td><span class="badge badge-blue">Hydrogen & Fuel Cells</span></td>
+                            <td><span class="badge badge-purple">Long (2030-35)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Piping and purging highly volatile
+                                hydrogen gas systems at industrial scale rather than standard diesel or natural gas
+                                lines.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Construction - Residential">
+                            <td style="font-weight:500;">Mount and wire bi-directional residential battery energy
+                                storage systems (BESS) capable of islanding a home during grid failure and arbitrating
+                                time-of-use rates.</td>
+                            <td style="color:var(--ink-3);">Construction - Residential</td>
+                            <td><span class="badge badge-blue">Battery Storage & Grid Storage</span></td>
+                            <td><span class="badge badge-green">Near (2025-27)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Configuring whole-home critical load
+                                panels and managing advanced lithium-ion safety parameters during installation.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Energy - Upstream">
+                            <td style="font-weight:500;">Implement identity-verified biometric access controls on
+                                isolated offshore drilling rig OT (Operational Technology) networks to prevent
+                                unauthorized logic controller modification.</td>
+                            <td style="color:var(--ink-3);">Energy - Upstream</td>
+                            <td><span class="badge badge-blue">Zero Trust Security</span></td>
+                            <td><span class="badge badge-green">Near (2025-27)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Extending zero-trust IT protocols into
+                                legacy, air-gapped maritime industrial environments.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Energy - Midstream">
+                            <td style="font-weight:500;">Wrap and cure carbon fiber reinforced polymer (CFRP) composite
+                                sleeves over localized pipeline corrosion anomalies to restore structural integrity
+                                without halting product flow.</td>
+                            <td style="color:var(--ink-3);">Energy - Midstream</td>
+                            <td><span class="badge badge-blue">Advanced Composites</span></td>
+                            <td><span class="badge badge-green">Near (2025-27)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Applying advanced multi-part polymer
+                                epoxies and managing exothermic curing temperatures in the field.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Energy - Downstream">
+                            <td style="font-weight:500;">Monitor and regulate precisely sterilized stainless steel
+                                fermentation tanks retrofitted from ethanol production facilities to culture
+                                continuous-brew alternative proteins.</td>
+                            <td style="color:var(--ink-3);">Energy - Downstream</td>
+                            <td><span class="badge badge-blue">Lab-Grown & Alternative Proteins</span></td>
+                            <td><span class="badge badge-purple">Long (2030-35)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Managing strict biological aseptic
+                                environments rather than traditional chemical distallation columns.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Energy - Utilities">
+                            <td style="font-weight:500;">Deploy hardware-accelerated edge computing nodes inside
+                                electrical distribution substations to process high-frequency waveform data locally,
+                                reducing central SCADA latency.</td>
+                            <td style="color:var(--ink-3);">Energy - Utilities</td>
+                            <td><span class="badge badge-blue">Edge Computing</span></td>
+                            <td><span class="badge badge-warm">Mid (2027-30)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Installing and hardening IT compute
+                                hardware inside high-EMI (Electromagnetic Interference) industrial environments.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Energy - Utilities">
+                            <td style="font-weight:500;">Operate direct air capture (DAC) fan arrays and regulate the
+                                flow of concentrated CO2 into pressurized supercritical fluid injection wells.</td>
+                            <td style="color:var(--ink-3);">Energy - Utilities</td>
+                            <td><span class="badge badge-blue">Carbon Capture & Sequestration</span></td>
+                            <td><span class="badge badge-purple">Long (2030-35)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Transitioning from producing electricity
+                                to managing industrial-scale atmospheric scrubbing and subsurface injection.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Transportation - Last-mile">
+                            <td style="font-weight:500;">Perform diagnostic scans and replace isolated degraded cell
+                                modules within specialized high-voltage battery packs underlying electric delivery
+                                step-vans.</td>
+                            <td style="color:var(--ink-3);">Transportation - Last-mile</td>
+                            <td><span class="badge badge-blue">Electric Vehicles & Electrification</span></td>
+                            <td><span class="badge badge-green">Near (2025-27)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Safely interacting with Class B
+                                high-voltage DC systems (up to 1000V) and utilizing proprietary battery diagnostic
+                                software.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Transportation - Rail & Intermodal">
+                            <td style="font-weight:500;">Scan specialized RFID container seals upon train loading to
+                                immutably log chain-of-custody transfer milestones onto an intermodal blockchain ledger.
+                            </td>
+                            <td style="color:var(--ink-3);">Transportation - Rail & Intermodal</td>
+                            <td><span class="badge badge-blue">Blockchain & Distributed Ledger</span></td>
+                            <td><span class="badge badge-green">Near (2025-27)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Executing decentralized cryptographic
+                                data-logging protocols replacing traditional paperway bills.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Transportation - Rail & Intermodal">
+                            <td style="font-weight:500;">Train wayside automated optical inspection logic directly via
+                                tablet interface to correctly categorize newly identified brake shoe wear patterns
+                                missing from original ML datasets.</td>
+                            <td style="color:var(--ink-3);">Transportation - Rail & Intermodal</td>
+                            <td><span class="badge badge-blue">Computer Vision</span></td>
+                            <td><span class="badge badge-warm">Mid (2027-30)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Providing structured human-in-the-loop
+                                annotations to improve edge-AI visual inspection reliability.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Construction - Residential">
+                            <td style="font-weight:500;">Utilize generative AI CAD tools to automatically route
+                                residential plumbing lines around structural joists, optimizing for minimal pressure
+                                drop and zero clash.</td>
+                            <td style="color:var(--ink-3);">Construction - Residential</td>
+                            <td><span class="badge badge-blue">Generative AI</span></td>
+                            <td><span class="badge badge-warm">Mid (2027-30)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Interfacing with predictive design
+                                software rather than doing manual on-site pipe runs.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Construction - Commercial">
+                            <td style="font-weight:500;">Apply hydrophobic and anti-microbial nanomaterial coatings to
+                                high-traffic commercial touch surfaces, such as elevator buttons and handrails.</td>
+                            <td style="color:var(--ink-3);">Construction - Commercial</td>
+                            <td><span class="badge badge-blue">Nanomaterials</span></td>
+                            <td><span class="badge badge-green">Near (2025-27)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Handling microscopic functional coatings
+                                and managing specific curing and ventilation requirements.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Construction - Heavy and Civil">
+                            <td style="font-weight:500;">Utilize AR headsets to physically paint and mark excavation
+                                limits overlaid from a civil engineering digital terrain model directly onto the raw
+                                dirt.</td>
+                            <td style="color:var(--ink-3);">Construction - Heavy and Civil</td>
+                            <td><span class="badge badge-blue">Augmented Reality (AR)</span></td>
+                            <td><span class="badge badge-green">Near (2025-27)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Translating virtual holographic boundaries
+                                into physical excavation markings.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Construction - Data Center">
+                            <td style="font-weight:500;">Configure air-gapped logic controllers on massive data center
+                                chillers to require cryptographic multi-factor authentication before accepting set-point
+                                modifications.</td>
+                            <td style="color:var(--ink-3);">Construction - Data Center</td>
+                            <td><span class="badge badge-blue">Zero Trust Security</span></td>
+                            <td><span class="badge badge-warm">Mid (2027-30)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Implementing IT-level cybersecurity
+                                protocols on physical environmental control systems.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Construction - Modular & Prefab">
+                            <td style="font-weight:500;">Monitor predictive AI dashboards forecasting module delivery
+                                times based on real-time traffic and weather telemetry to actively manage just-in-time
+                                crane staging.</td>
+                            <td style="color:var(--ink-3);">Construction - Modular & Prefab</td>
+                            <td><span class="badge badge-blue">Predictive Analytics</span></td>
+                            <td><span class="badge badge-green">Near (2025-27)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Integrating dynamic algorithmic logistics
+                                forecasting into rigid daily pouring and hoisting schedules.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Energy - Upstream">
+                            <td style="font-weight:500;">Replace and configure harsh-environment edge-computing blades
+                                housed within explosion-proof enclosures directly on the drilling rig floor.</td>
+                            <td style="color:var(--ink-3);">Energy - Upstream</td>
+                            <td><span class="badge badge-blue">Edge Computing</span></td>
+                            <td><span class="badge badge-green">Near (2025-27)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Servicing IT infrastructure encapsulated
+                                in specialized hazardous-location maritime hardware.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Energy - Midstream">
+                            <td style="font-weight:500;">Coordinate the sequenced charging of heavy-duty electric tanker
+                                fleets utilizing specialized multi-megawatt depot charging arrays without tripping local
+                                feeder breakers.</td>
+                            <td style="color:var(--ink-3);">Energy - Midstream</td>
+                            <td><span class="badge badge-blue">Electric Vehicles</span></td>
+                            <td><span class="badge badge-green">Near (2025-27)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Optimizing fleet logistics while
+                                constrained by local utility grid capacity and time-of-use tariffs.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Energy - Downstream">
+                            <td style="font-weight:500;">Utilize head-mounted spatial computing units to interact with
+                                floating digital manifolds and virtual valve turn sequences during refinery turnaround
+                                training.</td>
+                            <td style="color:var(--ink-3);">Energy - Downstream</td>
+                            <td><span class="badge badge-blue">Spatial Computing</span></td>
+                            <td><span class="badge badge-warm">Mid (2027-30)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Building kinesthetic muscle memory using
+                                highly immersive physical/digital mixed simulations.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Energy - Utilities">
+                            <td style="font-weight:500;">Interface with cloud-based quantum computing APIs to execute
+                                ultra-complex probabilistic weather forecasting models impacting regional renewable wind
+                                generation.</td>
+                            <td style="color:var(--ink-3);">Energy - Utilities</td>
+                            <td><span class="badge badge-blue">Quantum Computing</span></td>
+                            <td><span class="badge badge-purple">Long (2030-35)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Structuring grid topology inputs for
+                                quantum-accelerated optimization algorithms.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Transportation - Long-haul">
+                            <td style="font-weight:500;">Monitor and respond to haptic feedback from driver-monitoring
+                                smart vests that deliver physical vibration warnings when eye-tracking cameras detect
+                                microsleep events.</td>
+                            <td style="color:var(--ink-3);">Transportation - Long-haul</td>
+                            <td><span class="badge badge-blue">Advanced Sensors & Wearables</span></td>
+                            <td><span class="badge badge-green">Near (2025-27)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Integrating wearable biometric telemetry
+                                into standard hours-of-service compliance and fatigue management.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Transportation - Last-mile">
+                            <td style="font-weight:500;">Deploy specialized electric return-logistics vans utilizing
+                                AI-sorting racks to dynamically organize and route returned e-commerce packages back to
+                                appropriate micro-fulfillment hubs.</td>
+                            <td style="color:var(--ink-3);">Transportation - Last-mile</td>
+                            <td><span class="badge badge-blue">Circular Economy</span></td>
+                            <td><span class="badge badge-warm">Mid (2027-30)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Managing mobile, automated,
+                                reverse-logistics sorting systems simultaneously with forward delivery.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Transportation - Rail & Intermodal">
+                            <td style="font-weight:500;">Operate heavy-duty metal directed energy deposition (DED) 3D
+                                printers to repair localized spalling and wear patterns on locomotive drive wheels while
+                                still mounted on the axle.</td>
+                            <td style="color:var(--ink-3);">Transportation - Rail & Intermodal</td>
+                            <td><span class="badge badge-blue">Additive Manufacturing</span></td>
+                            <td><span class="badge badge-purple">Long (2030-35)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Executing in-situ metal additive repairs
+                                utilizing robotic arm extruders on massively heavy rolling stock.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Construction - Commercial">
+                            <td style="font-weight:500;">Program and monitor robotic bricklaying gantries utilizing
+                                complex masonry patterns and managing mortar extrusion viscosity based on ambient
+                                humidity.</td>
+                            <td style="color:var(--ink-3);">Construction - Commercial</td>
+                            <td><span class="badge badge-blue">Industrial Robotics</span></td>
+                            <td><span class="badge badge-warm">Mid (2027-30)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Transitioning from physical brick
+                                manipulation to supervising automated CNC masonry systems.</td>
+                        </tr>
+                        <tr class="task-row" data-subsector="Energy - Downstream">
+                            <td style="font-weight:500;">Anonymize and encrypt personal employee biometric data
+                                collected by automated flare-stack safety gates to ensure compliance with emergent
+                                industrial privacy regulations.</td>
+                            <td style="color:var(--ink-3);">Energy - Downstream</td>
+                            <td><span class="badge badge-blue">Privacy Engineering</span></td>
+                            <td><span class="badge badge-green">Near (2025-27)</span></td>
+                            <td style="font-size:0.8rem; color:var(--ink-4);">Implementing strict privacy-by-design
+                                protocols on heavy industrial IoT physical access layers.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- THE CERTIFICATION GAP -->
+            <div class="eyebrow reveal" style="margin-top:48px;">The Finding</div>
+            <h2 class="section-title reveal">The Certification Gap</h2>
+            <p class="section-desc reveal" style="margin-bottom:24px;">These technology trends generate dozens of
+                validated emerging tasks — but <strong>no existing certification covers the required skills</strong>.
+                This is the gap.</p>
+            <div class="glass table-wrap reveal">
+                <table class="glass-table">
+                    <thead>
+                        <tr>
+                            <th>Technology Trend</th>
+                            <th>Tasks</th>
+                            <th>Sectors Affected</th>
+                            <th>Existing Cert?</th>
+                            <th>Uncovered Skills</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Digital Twins</strong></td>
+                            <td>4</td>
+                            <td>Construction, Energy, Transport</td>
+                            <td><span class="badge badge-red">None</span></td>
+                            <td>4D simulation, point-cloud variance analysis, virtual ESD rehearsal</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Hydrogen & Fuel Cells</strong></td>
+                            <td>4</td>
+                            <td>Energy, Transport</td>
+                            <td><span class="badge badge-red">None</span></td>
+                            <td>Cryogenic fluid handling, 700-bar vessel inspection, PEM fuel cell commissioning</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Autonomous Vehicles</strong></td>
+                            <td>3</td>
+                            <td>Construction, Transport</td>
+                            <td><span class="badge badge-red">None</span></td>
+                            <td>Remote teleoperation, fleet geofencing, V2V platoon management</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Liquid Cooling Systems</strong></td>
+                            <td>2</td>
+                            <td>Construction (Data Center)</td>
+                            <td><span class="badge badge-red">None</span></td>
+                            <td>Dielectric fluid handling, immersion tank maintenance, zero-leak tolerance</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Carbon Capture & Sequestration</strong></td>
+                            <td>2</td>
+                            <td>Energy</td>
+                            <td><span class="badge badge-red">None</span></td>
+                            <td>Amine solvent management, supercritical CO₂ compression, DAC operations</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Computer Vision / Edge AI</strong></td>
+                            <td>3</td>
+                            <td>Construction, Energy, Transport</td>
+                            <td><span class="badge badge-red">None</span></td>
+                            <td>ML model tuning, human-in-the-loop annotation, optical gas imaging</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Advanced Composites</strong></td>
+                            <td>3</td>
+                            <td>Construction, Energy, Transport</td>
+                            <td><span class="badge badge-red">None</span></td>
+                            <td>CFRP tendon tensioning, composite pipeline wrapping, 3D-printed patching</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ FULL CERTIFICATION TABLE ═══ -->
+    <section id="certifications" style="background:var(--bg-alt);">
+        <div class="container">
+            <div class="eyebrow reveal">Database</div>
+            <h2 class="section-title reveal">29 Certifications</h2>
+            <p class="section-desc reveal">Every credential sourced from official licensing authorities — including
+                Transportation for the first time.</p>
+            <div class="glass table-wrap reveal">
+                <table class="glass-table">
+                    <thead>
+                        <tr>
+                            <th>Certification</th>
+                            <th>Category</th>
+                            <th>Authority</th>
+                            <th>Industries</th>
+                            <th>Tasks</th>
+                            <th>Union</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>OSHA 10-Hour Construction</td>
+                            <td>Safety</td>
+                            <td>OSHA / DOL</td>
+                            <td>Construction, Mfg</td>
+                            <td>4</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>OSHA 30-Hour Construction</td>
+                            <td>Safety</td>
+                            <td>OSHA / DOL</td>
+                            <td>Construction, Utilities</td>
+                            <td>6</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>OSHA 10-Hour General Industry</td>
+                            <td>Safety</td>
+                            <td>OSHA / DOL</td>
+                            <td>Manufacturing, Energy</td>
+                            <td>4</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>First Aid / CPR / AED</td>
+                            <td>Safety</td>
+                            <td>Red Cross / AHA</td>
+                            <td>All Industries</td>
+                            <td>4</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>CDL — Class A</td>
+                            <td>Equipment</td>
+                            <td>State DMV / FMCSA</td>
+                            <td>Construction, Transport</td>
+                            <td>5</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>CDL — Class B</td>
+                            <td>Equipment</td>
+                            <td>State DMV / FMCSA</td>
+                            <td>Construction</td>
+                            <td>4</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>NCCER Crane Operator</td>
+                            <td>Equipment</td>
+                            <td>NCCER / NCCCO</td>
+                            <td>Construction, Energy</td>
+                            <td>5</td>
+                            <td><span class="badge badge-accent">IUOE</span></td>
+                        </tr>
+                        <tr>
+                            <td>Heavy Equipment Operator</td>
+                            <td>Equipment</td>
+                            <td>NCCER / Union</td>
+                            <td>Construction, Mining</td>
+                            <td>5</td>
+                            <td><span class="badge badge-accent">IUOE</span></td>
+                        </tr>
+                        <tr>
+                            <td>Electrician Apprentice</td>
+                            <td>Trade</td>
+                            <td>State / IBEW</td>
+                            <td>Construction</td>
+                            <td>4</td>
+                            <td><span class="badge badge-accent">IBEW</span></td>
+                        </tr>
+                        <tr>
+                            <td>Journeyman Electrician</td>
+                            <td>Trade</td>
+                            <td>State Board</td>
+                            <td>Construction, Utilities</td>
+                            <td>6</td>
+                            <td><span class="badge badge-accent">IBEW</span></td>
+                        </tr>
+                        <tr>
+                            <td>Master Electrician</td>
+                            <td>Trade</td>
+                            <td>State Board</td>
+                            <td>Data Center, Commercial</td>
+                            <td>6</td>
+                            <td><span class="badge badge-accent">IBEW</span></td>
+                        </tr>
+                        <tr>
+                            <td>Journeyman Plumber</td>
+                            <td>Trade</td>
+                            <td>State Board</td>
+                            <td>Construction</td>
+                            <td>5</td>
+                            <td><span class="badge badge-accent">UA</span></td>
+                        </tr>
+                        <tr>
+                            <td>AWS Certified Welder</td>
+                            <td>Trade</td>
+                            <td>AWS</td>
+                            <td>Construction, Mfg, Energy</td>
+                            <td>4</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>General Contractor License</td>
+                            <td>Trade</td>
+                            <td>State Board</td>
+                            <td>Construction</td>
+                            <td>5</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>PEC SafeLand / RigPass</td>
+                            <td>Energy</td>
+                            <td>PEC Safety</td>
+                            <td>Energy (All)</td>
+                            <td>4</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>HAZWOPER 40-Hour</td>
+                            <td>Energy</td>
+                            <td>OSHA 1910.120</td>
+                            <td>Energy Downstream</td>
+                            <td>5</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>BOSIET / HUET</td>
+                            <td>Energy</td>
+                            <td>OPITO</td>
+                            <td>Offshore Energy</td>
+                            <td>4</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>H2S Alive / Clear</td>
+                            <td>Energy</td>
+                            <td>Enform / PEC</td>
+                            <td>Upstream Energy</td>
+                            <td>3</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>API 1169 Pipeline Inspector</td>
+                            <td>Energy</td>
+                            <td>API</td>
+                            <td>Midstream Energy</td>
+                            <td>4</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>Pipeline Operator Qual.</td>
+                            <td>Energy</td>
+                            <td>49 CFR 192</td>
+                            <td>Midstream Energy</td>
+                            <td>4</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>PMP</td>
+                            <td>Management</td>
+                            <td>PMI</td>
+                            <td>Construction, Data Center</td>
+                            <td>5</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>FAA Part 107</td>
+                            <td>Specialty</td>
+                            <td>FAA</td>
+                            <td>Construction, Energy, Ag</td>
+                            <td>4</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>NABCEP PV Installer</td>
+                            <td>Renewable</td>
+                            <td>NABCEP</td>
+                            <td>Solar Energy</td>
+                            <td>4</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>Wind Turbine Tech Cert</td>
+                            <td>Renewable</td>
+                            <td>ACP / GWO</td>
+                            <td>Wind Energy</td>
+                            <td>4</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>LEED Green Associate</td>
+                            <td>Sustainability</td>
+                            <td>USGBC</td>
+                            <td>Commercial Construction</td>
+                            <td>3</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>BIM / Revit Certification</td>
+                            <td>Digital</td>
+                            <td>Autodesk</td>
+                            <td>Data Center, Commercial</td>
+                            <td>4</td>
+                            <td>—</td>
+                        </tr>
+                        <tr style="background:rgba(58,110,165,0.03);">
+                            <td>TWIC Card</td>
+                            <td>Transport</td>
+                            <td>TSA / USCG</td>
+                            <td>Transport, Energy Downstream</td>
+                            <td>3</td>
+                            <td>—</td>
+                        </tr>
+                        <tr style="background:rgba(58,110,165,0.03);">
+                            <td>HazMat Endorsement (CDL)</td>
+                            <td>Transport</td>
+                            <td>State DMV / TSA</td>
+                            <td>Transport, Energy</td>
+                            <td>4</td>
+                            <td>—</td>
+                        </tr>
+                        <tr style="background:rgba(58,110,165,0.03);">
+                            <td>DOT Medical Certificate</td>
+                            <td>Transport</td>
+                            <td>FMCSA / DOT</td>
+                            <td>Long-haul, Last-mile</td>
+                            <td>3</td>
+                            <td>—</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ ARCHETYPES ═══ -->
+    <section id="archetypes">
+        <div class="container">
+            <div class="eyebrow reveal">Worker Profiles</div>
+            <h2 class="section-title reveal">6 Archetypes</h2>
+            <p class="section-desc reveal">Real worker profiles with transferable skills and habits they must unlearn.
+            </p>
+            <div class="arch-grid reveal">
+                <div class="glass arch-card">
+                    <div class="arch-sector">Military / Defense</div>
+                    <h4>Military Logistics Specialist</h4>
+                    <p>Army 92A, Marine Logistics, Navy Seabee. Experienced with convoy ops, supply chains, heavy
+                        equipment in hostile environments.</p>
+                    <ul class="skill-list">
+                        <li>Managing multi-vehicle convoys and equipment</li>
+                        <li>Operating heavy machinery in field conditions</li>
+                        <li>Maintaining detailed records and documentation</li>
+                    </ul>
+                </div>
+                <div class="glass arch-card">
+                    <div class="arch-sector">Energy — Downstream</div>
+                    <h4>Oil Refinery Process Operator</h4>
+                    <p>Process Operator, Board Operator, Field Operator. 24/7 shift work managing high-voltage systems
+                        and hazardous materials.</p>
+                    <ul class="skill-list">
+                        <li>Monitoring process control systems (DCS/SCADA)</li>
+                        <li>High-voltage electrical system awareness</li>
+                        <li>Hazardous materials handling per OSHA</li>
+                    </ul>
+                </div>
+                <div class="glass arch-card">
+                    <div class="arch-sector">Mining</div>
+                    <h4>Underground Coal Miner</h4>
+                    <p>Continuous Mining Machine Operator, Roof Bolter, Shuttle Car Operator. Decades in confined,
+                        high-risk environments.</p>
+                    <ul class="skill-list">
+                        <li>Operating heavy machinery in confined spaces</li>
+                        <li>Strict safety protocol adherence (MSHA)</li>
+                        <li>Electrical troubleshooting underground</li>
+                    </ul>
+                </div>
+                <div class="glass arch-card">
+                    <div class="arch-sector">Energy — Midstream</div>
+                    <h4>Pipeline Welder</h4>
+                    <p>Pipe Fitter/Welder specialist with API 1104 certification. Remote, travel-heavy work across
+                        pipeline corridors.</p>
+                    <ul class="skill-list">
+                        <li>Precision welding (SMAW, GTAW, FCAW)</li>
+                        <li>X-ray quality welds to pipeline codes</li>
+                        <li>Heavy equipment operation (sidebooms)</li>
+                    </ul>
+                </div>
+                <div class="glass arch-card" style="grid-column:span 2;">
+                    <div class="arch-sector">Commercial Real Estate</div>
+                    <h4>Building Maintenance Technician</h4>
+                    <p>General maintenance in commercial/office buildings — HVAC, basic electrical, plumbing. As office
+                        vacancy rises with remote work, these workers need new paths.</p>
+                    <ul class="skill-list">
+                        <li>Basic electrical troubleshooting (120V/208V)</li>
+                        <li>HVAC system maintenance and repair</li>
+                        <li>Building management system operation</li>
+                        <li>Multi-trade basic competency</li>
+                    </ul>
+                </div>
+                <div class="glass arch-card" style="grid-column:span 2;">
+                    <div class="arch-sector">Transportation</div>
+                    <h4>Long-haul Truck Driver</h4>
+                    <p>Owner-operator or company driver. CDL-A, 11 hours/day on the road managing a 40-ton vehicle, load
+                        compliance, HOS logs, and DOT inspections. As freight automation grows, experienced drivers are
+                        looking for land-based alternatives.</p>
+                    <ul class="skill-list">
+                        <li>Driving and operating Class 8 vehicles (80,000+ lbs GVW)</li>
+                        <li>Pre-trip &amp; post-trip DOT inspection routines</li>
+                        <li>HOS log compliance via ELD systems</li>
+                        <li>Load securing and weight distribution</li>
+                        <li>Route planning and logistics coordination</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ ALL 10 TRANSITIONS ═══ -->
+    <section id="transitions" style="background:var(--bg-alt);">
+        <div class="container">
+            <div class="eyebrow reveal">Full Pathways</div>
+            <h2 class="section-title reveal">11 Transitions</h2>
+            <p class="section-desc reveal">Every transition modeled with certs held, certs needed, costs, and timelines.
+            </p>
+
+            <!-- T1 -->
+            <div class="glass tc-card reveal">
+                <div class="tc-header">
+                    <div class="tc-pill"><strong>Military Logistics</strong></div><span class="tc-arrow">→</span>
+                    <div class="tc-pill"><strong>Heavy Truck Driver</strong></div><span
+                        class="badge badge-green tc-fit">95% Fit</span>
+                </div>
+                <div class="tc-stats">
+                    <div class="tc-stat">
+                        <div class="val">$75</div>
+                        <div class="lbl">Cost</div>
+                    </div>
+                    <div class="tc-stat">
+                        <div class="val">2 mo</div>
+                        <div class="lbl">Time</div>
+                    </div>
+                    <div class="tc-stat">
+                        <div class="val">2</div>
+                        <div class="lbl">Held</div>
+                    </div>
+                    <div class="tc-stat">
+                        <div class="val">1</div>
+                        <div class="lbl">Needed</div>
+                    </div>
+                </div>
+                <div>
+                    <p
+                        style="font-size:0.72rem;color:var(--ink-4);text-transform:uppercase;letter-spacing:1px;font-weight:600;margin-bottom:6px;">
+                        Holds</p>
+                    <div class="cert-tags"><span class="cert-tag">CDL-A</span><span class="cert-tag">First
+                            Aid/CPR</span></div>
+                </div>
+                <div style="margin-top:10px;">
+                    <p
+                        style="font-size:0.72rem;color:var(--ink-4);text-transform:uppercase;letter-spacing:1px;font-weight:600;margin-bottom:6px;">
+                        Needs</p>
+                    <div class="cert-tags"><span class="cert-tag needed">OSHA 10-Hour — $75</span></div>
+                </div>
+            </div>
+
+            <!-- T2 -->
+            <div class="glass tc-card reveal">
+                <div class="tc-header">
+                    <div class="tc-pill"><strong>Military Logistics</strong></div><span class="tc-arrow">→</span>
+                    <div class="tc-pill"><strong>Equipment Operator</strong></div><span
+                        class="badge badge-green tc-fit">85% Fit</span>
+                </div>
+                <div class="tc-stats">
+                    <div class="tc-stat">
+                        <div class="val">$8,075</div>
+                        <div class="lbl">Cost</div>
+                    </div>
+                    <div class="tc-stat">
+                        <div class="val">6 mo</div>
+                        <div class="lbl">Time</div>
+                    </div>
+                    <div class="tc-stat">
+                        <div class="val">2</div>
+                        <div class="lbl">Held</div>
+                    </div>
+                    <div class="tc-stat">
+                        <div class="val">2</div>
+                        <div class="lbl">Needed</div>
+                    </div>
+                </div>
+                <div>
+                    <p
+                        style="font-size:0.72rem;color:var(--ink-4);text-transform:uppercase;letter-spacing:1px;font-weight:600;margin-bottom:6px;">
+                        Needs</p>
+                    <div class="cert-tags"><span class="cert-tag needed">Heavy Equip Cert — $8,000</span><span
+                            class="cert-tag needed">OSHA 10 — $75</span></div>
+                </div>
+            </div>
+
+            <!-- T3: Military → Construction Manager (detail) -->
+            <div class="glass tc-card reveal">
+                <div class="tc-header">
+                    <div class="tc-pill"><strong>Military Logistics</strong></div><span class="tc-arrow">→</span>
+                    <div class="tc-pill"><strong>Construction Manager</strong></div><span
+                        class="badge badge-blue tc-fit">75% Fit</span>
+                </div>
+                <div class="tc-stats">
+                    <div class="tc-stat">
+                        <div class="val">$2,305</div>
+                        <div class="lbl">Cost</div>
+                    </div>
+                    <div class="tc-stat">
+                        <div class="val">12 mo</div>
+                        <div class="lbl">Time</div>
+                    </div>
+                    <div class="tc-stat">
+                        <div class="val">2</div>
+                        <div class="lbl">Held</div>
+                    </div>
+                    <div class="tc-stat">
+                        <div class="val">3</div>
+                        <div class="lbl">Needed</div>
+                    </div>
+                </div>
+                <div>
+                    <p
+                        style="font-size:0.72rem;color:var(--ink-4);text-transform:uppercase;letter-spacing:1px;font-weight:600;margin-bottom:6px;">
+                        Holds</p>
+                    <div class="cert-tags"><span class="cert-tag">CDL-A</span><span class="cert-tag">First
+                            Aid/CPR</span></div>
+                </div>
+                <div style="margin-top:10px;">
+                    <p
+                        style="font-size:0.72rem;color:var(--ink-4);text-transform:uppercase;letter-spacing:1px;font-weight:600;margin-bottom:6px;">
+                        Needs</p>
+                    <div class="cert-tags"><span class="cert-tag needed">OSHA 30 — $250</span><span
+                            class="cert-tag needed">PMP — $555</span><span class="cert-tag needed">GC License —
+                            $1,500</span></div>
+                </div>
+                <div class="learn-unlearn">
+                    <div class="lu-box lu-learn">
+                        <h5>Must Learn</h5>
+                        <ul>
+                            <li>Building codes (NEC, IBC)</li>
+                            <li>Union labor relations</li>
+                            <li>Construction estimating &amp; bidding</li>
+                            <li>Permit &amp; inspection scheduling</li>
+                        </ul>
+                    </div>
+                    <div class="lu-box lu-unlearn">
+                        <h5>Must Unlearn</h5>
+                        <ul>
+                            <li>Command-and-control style</li>
+                            <li>Threat-response instincts on sites</li>
+                            <li>Prioritizing mission over safety breaks</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- T4 -->
+            <div class="glass tc-card reveal">
+                <div class="tc-header">
+                    <div class="tc-pill"><strong>Oil Refinery Op.</strong></div><span class="tc-arrow">→</span>
+                    <div class="tc-pill"><strong>Power Plant Op.</strong></div><span
+                        class="badge badge-green tc-fit">90% Fit</span>
+                </div>
+                <div class="tc-stats">
+                    <div class="tc-stat">
+                        <div class="val">$0</div>
+                        <div class="lbl">Cost</div>
+                    </div>
+                    <div class="tc-stat">
+                        <div class="val">3 mo</div>
+                        <div class="lbl">Time</div>
+                    </div>
+                    <div class="tc-stat">
+                        <div class="val">2</div>
+                        <div class="lbl">Held</div>
+                    </div>
+                    <div class="tc-stat">
+                        <div class="val">0</div>
+                        <div class="lbl">Needed</div>
+                    </div>
+                </div>
+                <div class="learn-unlearn">
+                    <div class="lu-box lu-learn">
+                        <h5>Must Learn</h5>
+                        <ul>
+                            <li>Grid synchronization &amp; load dispatch</li>
+                            <li>NERC reliability standards</li>
+                        </ul>
+                    </div>
+                    <div class="lu-box lu-unlearn">
+                        <h5>Must Unlearn</h5>
+                        <ul>
+                            <li>Petroleum-specific process terminology</li>
+                            <li>API standards → NERC standards</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- T5 -->
+            <div class="glass tc-card reveal">
+                <div class="tc-header">
+                    <div class="tc-pill"><strong>Oil Refinery Op.</strong></div><span class="tc-arrow">→</span>
+                    <div class="tc-pill"><strong>Electrician</strong></div><span class="badge badge-warm tc-fit">60%
+                        Fit</span>
+                </div>
+                <div class="tc-stats">
+                    <div class="tc-stat">
+                        <div class="val">$575</div>
+                        <div class="lbl">Cost</div>
+                    </div>
+                    <div class="tc-stat">
+                        <div class="val">48 mo</div>
+                        <div class="lbl">Time</div>
+                    </div>
+                    <div class="tc-stat">
+                        <div class="val">2</div>
+                        <div class="lbl">Held</div>
+                    </div>
+                    <div class="tc-stat">
+                        <div class="val">3</div>
+                        <div class="lbl">Needed</div>
+                    </div>
+                </div>
+                <div style="margin-top:10px;">
+                    <p
+                        style="font-size:0.72rem;color:var(--ink-4);text-transform:uppercase;letter-spacing:1px;font-weight:600;margin-bottom:6px;">
+                        Needs</p>
+                    <div class="cert-tags"><span class="cert-tag needed">OSHA 30 — $250</span><span
+                            class="cert-tag needed">Apprentice Reg — $75</span><span class="cert-tag needed">Journeyman
+                            License — $250</span></div>
+                </div>
+            </div>
+
+            <!-- T6 -->
+            <div class="glass tc-card reveal">
+                <div class="tc-header">
+                    <div class="tc-pill"><strong>Pipeline Welder</strong></div><span class="tc-arrow">→</span>
+                    <div class="tc-pill"><strong>Construction Welder</strong></div><span
+                        class="badge badge-green tc-fit">90% Fit</span>
+                </div>
+                <div class="tc-stats">
+                    <div class="tc-stat">
+                        <div class="val">$75</div>
+                        <div class="lbl">Cost</div>
+                    </div>
+                    <div class="tc-stat">
+                        <div class="val">2 mo</div>
+                        <div class="lbl">Time</div>
+                    </div>
+                    <div class="tc-stat">
+                        <div class="val">4</div>
+                        <div class="lbl">Held</div>
+                    </div>
+                    <div class="tc-stat">
+                        <div class="val">1</div>
+                        <div class="lbl">Needed</div>
+                    </div>
+                </div>
+                <div class="learn-unlearn">
+                    <div class="lu-box lu-learn">
+                        <h5>Must Learn</h5>
+                        <ul>
+                            <li>AWS D1.1 (vs API 1104)</li>
+                            <li>Moment-frame connections</li>
+                            <li>Multi-trade coordination</li>
+                        </ul>
+                    </div>
+                    <div class="lu-box lu-unlearn">
+                        <h5>Must Unlearn</h5>
+                        <ul>
+                            <li>Pipeline codes → structural codes</li>
+                            <li>Solo remote work style</li>
+                            <li>Linear project flow</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- T7 -->
+            <div class="glass tc-card reveal">
+                <div class="tc-header">
+                    <div class="tc-pill"><strong>Pipeline Welder</strong></div><span class="tc-arrow">→</span>
+                    <div class="tc-pill"><strong>Plumber / Pipefitter</strong></div><span
+                        class="badge badge-blue tc-fit">75% Fit</span>
+                </div>
+                <div class="tc-stats">
+                    <div class="tc-stat">
+                        <div class="val">$575</div>
+                        <div class="lbl">Cost</div>
+                    </div>
+                    <div class="tc-stat">
+                        <div class="val">24 mo</div>
+                        <div class="lbl">Time</div>
+                    </div>
+                    <div class="tc-stat">
+                        <div class="val">4</div>
+                        <div class="lbl">Held</div>
+                    </div>
+                    <div class="tc-stat">
+                        <div class="val">2</div>
+                        <div class="lbl">Needed</div>
+                    </div>
+                </div>
+                <div style="margin-top:10px;">
+                    <p
+                        style="font-size:0.72rem;color:var(--ink-4);text-transform:uppercase;letter-spacing:1px;font-weight:600;margin-bottom:6px;">
+                        Needs</p>
+                    <div class="cert-tags"><span class="cert-tag needed">OSHA 30 — $250</span><span
+                            class="cert-tag needed">Plumber License — $325</span></div>
+                </div>
+            </div>
+
+            <!-- T8 -->
+            <div class="glass tc-card reveal">
+                <div class="tc-header">
+                    <div class="tc-pill"><strong>Coal Miner</strong></div><span class="tc-arrow">→</span>
+                    <div class="tc-pill"><strong>Wind Turbine Tech</strong></div><span
+                        class="badge badge-warm tc-fit">65% Fit</span>
+                </div>
+                <div class="tc-stats">
+                    <div class="tc-stat">
+                        <div class="val">$75</div>
+                        <div class="lbl">Cost</div>
+                    </div>
+                    <div class="tc-stat">
+                        <div class="val">18 mo</div>
+                        <div class="lbl">Time</div>
+                    </div>
+                    <div class="tc-stat">
+                        <div class="val">2</div>
+                        <div class="lbl">Held</div>
+                    </div>
+                    <div class="tc-stat">
+                        <div class="val">2</div>
+                        <div class="lbl">Needed</div>
+                    </div>
+                </div>
+                <div class="learn-unlearn">
+                    <div class="lu-box lu-learn">
+                        <h5>Must Learn</h5>
+                        <ul>
+                            <li>Climb/work at 300+ feet heights</li>
+                            <li>LOTO on wind-specific gearboxes</li>
+                            <li>GWO-certified safety protocols</li>
+                        </ul>
+                    </div>
+                    <div class="lu-box lu-unlearn">
+                        <h5>Must Unlearn</h5>
+                        <ul>
+                            <li>Underground safety instincts</li>
+                            <li>Coal dust protocols</li>
+                            <li>UMWA union norms → IBEW</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- T9 -->
+            <div class="glass tc-card reveal">
+                <div class="tc-header">
+                    <div class="tc-pill"><strong>Coal Miner</strong></div><span class="tc-arrow">→</span>
+                    <div class="tc-pill"><strong>Solar PV Installer</strong></div><span
+                        class="badge badge-red tc-fit">55% Fit</span>
+                </div>
+                <div class="tc-stats">
+                    <div class="tc-stat">
+                        <div class="val">$75</div>
+                        <div class="lbl">Cost</div>
+                    </div>
+                    <div class="tc-stat">
+                        <div class="val">12 mo</div>
+                        <div class="lbl">Time</div>
+                    </div>
+                    <div class="tc-stat">
+                        <div class="val">2</div>
+                        <div class="lbl">Held</div>
+                    </div>
+                    <div class="tc-stat">
+                        <div class="val">2</div>
+                        <div class="lbl">Needed</div>
+                    </div>
+                </div>
+                <div class="learn-unlearn">
+                    <div class="lu-box lu-learn">
+                        <h5>Must Learn</h5>
+                        <ul>
+                            <li>NEC Article 690 solar codes</li>
+                            <li>Roof work safety</li>
+                            <li>DC circuit theory</li>
+                        </ul>
+                    </div>
+                    <div class="lu-box lu-unlearn">
+                        <h5>Must Unlearn</h5>
+                        <ul>
+                            <li>Underground confined-space instincts</li>
+                            <li>MSHA → OSHA regulatory framework</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- T10 -->
+            <div class="glass tc-card reveal">
+                <div class="tc-header">
+                    <div class="tc-pill"><strong>Building Maint.</strong></div><span class="tc-arrow">→</span>
+                    <div class="tc-pill"><strong>Electrician</strong></div><span class="badge badge-blue tc-fit">70%
+                        Fit</span>
+                </div>
+                <div class="tc-stats">
+                    <div class="tc-stat">
+                        <div class="val">$500</div>
+                        <div class="lbl">Cost</div>
+                    </div>
+                    <div class="tc-stat">
+                        <div class="val">36 mo</div>
+                        <div class="lbl">Time</div>
+                    </div>
+                    <div class="tc-stat">
+                        <div class="val">2</div>
+                        <div class="lbl">Held</div>
+                    </div>
+                    <div class="tc-stat">
+                        <div class="val">2</div>
+                        <div class="lbl">Needed</div>
+                    </div>
+                </div>
+                <div style="margin-top:10px;">
+                    <p
+                        style="font-size:0.72rem;color:var(--ink-4);text-transform:uppercase;letter-spacing:1px;font-weight:600;margin-bottom:6px;">
+                        Needs</p>
+                    <div class="cert-tags"><span class="cert-tag needed">Apprentice Registration — $250</span><span
+                            class="cert-tag needed">OSHA 30 — $250</span></div>
+                </div>
+            </div>
+
+            <!-- T11 -->
+            <div class="glass tc-card reveal">
+                <div class="tc-header">
+                    <div class="tc-pill"><strong>Long-haul Trucker</strong></div><span class="tc-arrow">→</span>
+                    <div class="tc-pill"><strong>Construction Site Logistics Supervisor</strong></div><span
+                        class="badge badge-green tc-fit">85% Fit</span>
+                </div>
+                <div class="tc-stats">
+                    <div class="tc-stat">
+                        <div class="val">$400</div>
+                        <div class="lbl">Cost</div>
+                    </div>
+                    <div class="tc-stat">
+                        <div class="val">4 mo</div>
+                        <div class="lbl">Time</div>
+                    </div>
+                    <div class="tc-stat">
+                        <div class="val">3</div>
+                        <div class="lbl">Held</div>
+                    </div>
+                    <div class="tc-stat">
+                        <div class="val">2</div>
+                        <div class="lbl">Needed</div>
+                    </div>
+                </div>
+                <div>
+                    <p
+                        style="font-size:0.72rem;color:var(--ink-4);text-transform:uppercase;letter-spacing:1px;font-weight:600;margin-bottom:6px;">
+                        Holds</p>
+                    <div class="cert-tags"><span class="cert-tag">CDL-A</span><span class="cert-tag">HazMat
+                            Endorsement</span><span class="cert-tag">DOT Medical</span></div>
+                </div>
+                <div style="margin-top:10px;">
+                    <p
+                        style="font-size:0.72rem;color:var(--ink-4);text-transform:uppercase;letter-spacing:1px;font-weight:600;margin-bottom:6px;">
+                        Needs</p>
+                    <div class="cert-tags"><span class="cert-tag needed">OSHA 10-Hour — $75</span><span
+                            class="cert-tag needed">First Aid/CPR — $75</span></div>
+                </div>
+                <div class="learn-unlearn">
+                    <div class="lu-box lu-learn">
+                        <h5>Must Learn</h5>
+                        <ul>
+                            <li>Reading site plans and delivery sequencing</li>
+                            <li>Construction site safety protocols (OSHA 10)</li>
+                            <li>Coordinating with multiple trades on active sites</li>
+                            <li>Material staging and just-in-time scheduling</li>
+                        </ul>
+                    </div>
+                    <div class="lu-box lu-unlearn">
+                        <h5>Must Unlearn</h5>
+                        <ul>
+                            <li>Solo decision-making — construction is team-coordinated</li>
+                            <li>HOS/ELD mindset — different scheduling culture on site</li>
+                            <li>Point-to-point routing — replaced by zone-based site ops</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>PowerTechs · Full Analysis · 2026</p>
+        </div>
+    </footer>
+
+    <script>
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
+        document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+    </script>
+
+    <script>
+        function filterTasks() {
+            const searchInput = document.getElementById('taskSearch').value.toLowerCase();
+            const filterInput = document.getElementById('taskFilter').value;
+            const rows = document.querySelectorAll('#tasksTable .task-row');
+
+            rows.forEach(row => {
+                const text = row.innerText.toLowerCase();
+                const subsector = row.getAttribute('data-subsector');
+
+                const matchesSearch = text.includes(searchInput);
+                const matchesFilter = filterInput === 'all' || subsector === filterInput;
+
+                if (matchesSearch && matchesFilter) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+
+
+</html>

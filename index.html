@@ -1,0 +1,2131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PowerTechs — The 10-Year Workforce Outlook</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        /* ══════════════════════════════════════════════════════════
+   DESIGN TOKENS
+   ══════════════════════════════════════════════════════════ */
+        :root {
+            --bg: #f8f6f3;
+            --bg-alt: #f0eeeb;
+            --surface: rgba(255, 255, 255, 0.5);
+            --glass: rgba(255, 255, 255, 0.42);
+            --glass-border: rgba(0, 0, 0, 0.05);
+            --glass-glow: rgba(255, 255, 255, 0.7);
+            --ink: #1c1c1c;
+            --ink-2: #3a3a3a;
+            --ink-3: #6b6b6b;
+            --ink-4: #9a9a9a;
+            --accent: #1a6b5a;
+            --accent-light: #2a9d8f;
+            --accent-soft: rgba(26, 107, 90, 0.08);
+            --accent-glow: rgba(42, 157, 143, 0.12);
+            --warm: #c17f3e;
+            --warm-soft: rgba(193, 127, 62, 0.1);
+            --red: #b84233;
+            --red-soft: rgba(184, 66, 51, 0.08);
+            --green: #2a7c5f;
+            --green-soft: rgba(42, 124, 95, 0.08);
+            --blue: #3a6ea5;
+            --blue-soft: rgba(58, 110, 165, 0.08);
+            --purple: #6b5b95;
+            --purple-soft: rgba(107, 91, 149, 0.08);
+            --serif: 'Instrument Serif', Georgia, serif;
+            --sans: 'Space Grotesk', system-ui, sans-serif;
+            --radius: 24px;
+            --radius-sm: 16px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--sans);
+            background: var(--bg);
+            color: var(--ink);
+            line-height: 1.65;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ═══ GRAIN TEXTURE ═══ */
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.025;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        }
+
+        /* ═══ AMBIENT ORBS (parallax-ready) ═══ */
+        .ambient {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            will-change: transform;
+        }
+
+        .orb-1 {
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(42, 157, 143, 0.08) 0%, transparent 70%);
+            top: -20%;
+            left: -15%;
+        }
+
+        .orb-2 {
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(193, 127, 62, 0.06) 0%, transparent 70%);
+            top: 35%;
+            right: -12%;
+        }
+
+        .orb-3 {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(107, 91, 149, 0.05) 0%, transparent 70%);
+            bottom: 0;
+            left: 30%;
+        }
+
+        /* ═══ GLASS ═══ */
+        .glass {
+            background: var(--glass);
+            backdrop-filter: blur(30px) saturate(180%);
+            -webkit-backdrop-filter: blur(30px) saturate(180%);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius);
+            box-shadow:
+                0 1px 2px rgba(0, 0, 0, 0.03),
+                0 4px 16px rgba(0, 0, 0, 0.03),
+                inset 0 1px 0 var(--glass-glow);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .glass:hover {
+            background: rgba(255, 255, 255, 0.58);
+            border-color: rgba(0, 0, 0, 0.08);
+            box-shadow:
+                0 4px 20px rgba(0, 0, 0, 0.05),
+                0 12px 40px rgba(0, 0, 0, 0.04),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9);
+            transform: translateY(-4px);
+        }
+
+        /* ═══ LAYOUT ═══ */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 32px;
+            position: relative;
+            z-index: 1;
+        }
+
+        section {
+            padding: 120px 0;
+        }
+
+        /* ═══ NAV ═══ */
+        nav {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 100;
+            padding: 12px 32px;
+            border-radius: 100px;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(24px) saturate(200%);
+            -webkit-backdrop-filter: blur(24px) saturate(200%);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            display: flex;
+            align-items: center;
+            gap: 36px;
+            transition: all 0.4s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(255, 255, 255, 0.82);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06);
+        }
+
+        .nav-logo {
+            font-family: var(--serif);
+            font-size: 1.2rem;
+        }
+
+        .nav-logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+        }
+
+        .nav-links a {
+            color: var(--ink-4);
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--ink);
+        }
+
+        /* ═══ HERO ═══ */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 100px;
+        }
+
+        .hero-content {
+            max-width: 720px;
+        }
+
+        .hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 32px;
+            font-size: 0.78rem;
+            font-weight: 500;
+            color: var(--accent);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .hero-eyebrow .pulse {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent-light);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(42, 157, 143, 0.4)
+            }
+
+            50% {
+                box-shadow: 0 0 0 8px rgba(42, 157, 143, 0)
+            }
+        }
+
+        .hero h1 {
+            font-family: var(--serif);
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 400;
+            line-height: 1.05;
+            letter-spacing: -1px;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 em {
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        .hero p {
+            font-size: 1.12rem;
+            color: var(--ink-3);
+            max-width: 500px;
+            margin-bottom: 40px;
+            line-height: 1.7;
+        }
+
+        .hero-metrics {
+            display: flex;
+            gap: 56px;
+            padding-top: 48px;
+            border-top: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .metric .num {
+            font-family: var(--serif);
+            font-size: 3rem;
+            color: var(--ink);
+            line-height: 1;
+        }
+
+        .metric .label {
+            font-size: 0.75rem;
+            color: var(--ink-4);
+            margin-top: 6px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        /* ═══ BENTO GRID ═══ */
+        .bento {
+            display: grid;
+            gap: 16px;
+        }
+
+        .bento-4 {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .bento-3 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .bento-2 {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .bento-item {
+            padding: 32px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .bento-item.span-2 {
+            grid-column: span 2;
+        }
+
+        .bento-item.row-2 {
+            grid-row: span 2;
+        }
+
+        .bento-item .item-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            margin-bottom: 18px;
+        }
+
+        .item-icon svg {
+            width: 20px;
+            height: 20px;
+            stroke-width: 1.5;
+            fill: none;
+            stroke: currentColor;
+        }
+
+        .icon-accent svg {
+            color: var(--accent);
+        }
+
+        .icon-warm svg {
+            color: var(--warm);
+        }
+
+        .icon-red svg {
+            color: var(--red);
+        }
+
+        .icon-green svg {
+            color: var(--green);
+        }
+
+        .icon-blue svg {
+            color: var(--blue);
+        }
+
+        .icon-purple svg {
+            color: var(--purple);
+        }
+
+        .bento-item h4 {
+            font-family: var(--serif);
+            font-size: 1.08rem;
+            margin-bottom: 8px;
+        }
+
+        .bento-item p {
+            font-size: 0.85rem;
+            color: var(--ink-3);
+            line-height: 1.6;
+        }
+
+        .icon-accent {
+            background: var(--accent-soft);
+        }
+
+        .icon-warm {
+            background: var(--warm-soft);
+        }
+
+        .icon-red {
+            background: var(--red-soft);
+        }
+
+        .icon-green {
+            background: var(--green-soft);
+        }
+
+        .icon-blue {
+            background: var(--blue-soft);
+        }
+
+        .icon-purple {
+            background: var(--purple-soft);
+        }
+
+        /* ═══ SECTION HEADERS ═══ */
+        .eyebrow {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .eyebrow::before {
+            content: '';
+            width: 24px;
+            height: 1px;
+            background: var(--accent);
+        }
+
+        .section-title {
+            font-family: var(--serif);
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            font-weight: 400;
+            letter-spacing: -0.5px;
+            margin-bottom: 12px;
+            line-height: 1.1;
+        }
+
+        .section-desc {
+            font-size: 1rem;
+            color: var(--ink-3);
+            max-width: 520px;
+            margin-bottom: 56px;
+            line-height: 1.7;
+        }
+
+        /* ═══ TABLES ═══ */
+        .table-wrap {
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .glass-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.84rem;
+        }
+
+        .glass-table thead th {
+            text-align: left;
+            padding: 16px 20px;
+            color: var(--ink-4);
+            font-weight: 600;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .glass-table tbody td {
+            padding: 16px 20px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+            color: var(--ink-2);
+        }
+
+        .glass-table tbody tr {
+            transition: background 0.3s;
+        }
+
+        .glass-table tbody tr:hover {
+            background: rgba(0, 0, 0, 0.015);
+        }
+
+        .glass-table tbody td:first-child {
+            color: var(--ink);
+            font-weight: 500;
+        }
+
+        /* ═══ BADGES ═══ */
+        .badge {
+            display: inline-flex;
+            padding: 4px 12px;
+            border-radius: 100px;
+            font-size: 0.72rem;
+            font-weight: 600;
+        }
+
+        .badge-green {
+            background: var(--green-soft);
+            color: var(--green);
+        }
+
+        .badge-blue {
+            background: var(--blue-soft);
+            color: var(--blue);
+        }
+
+        .badge-warm {
+            background: var(--warm-soft);
+            color: var(--warm);
+        }
+
+        .badge-red {
+            background: var(--red-soft);
+            color: var(--red);
+        }
+
+        .badge-accent {
+            background: var(--accent-soft);
+            color: var(--accent);
+        }
+
+        .badge-purple {
+            background: var(--purple-soft);
+            color: var(--purple);
+        }
+
+        /* ═══ FLOW ═══ */
+        .flow-row {
+            display: flex;
+            align-items: stretch;
+            gap: 1px;
+            margin: 40px 0;
+            border-radius: var(--radius);
+            overflow: hidden;
+            background: rgba(0, 0, 0, 0.04);
+        }
+
+        .flow-step {
+            flex: 1;
+            text-align: center;
+            padding: 28px 20px;
+            background: rgba(255, 255, 255, 0.5);
+            position: relative;
+        }
+
+        .flow-step::after {
+            content: '→';
+            position: absolute;
+            right: -8px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--accent);
+            font-size: 1.1rem;
+            z-index: 2;
+        }
+
+        .flow-step:last-child::after {
+            display: none;
+        }
+
+        .flow-step .step-num {
+            font-size: 0.62rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--ink-4);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .flow-step .step-title {
+            font-family: var(--serif);
+            font-size: 1.05rem;
+            margin-bottom: 6px;
+        }
+
+        .flow-step .step-desc {
+            font-size: 0.75rem;
+            color: var(--ink-4);
+            line-height: 1.4;
+        }
+
+        /* ═══ TRANSITION CARDS ═══ */
+        .transition-card {
+            padding: 36px;
+        }
+
+        .tc-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 28px;
+            flex-wrap: wrap;
+        }
+
+        .tc-pill {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 18px;
+            border-radius: 100px;
+            background: rgba(0, 0, 0, 0.03);
+            font-weight: 500;
+            font-size: 0.88rem;
+        }
+
+        .tc-arrow {
+            font-size: 1.2rem;
+            color: var(--accent);
+            opacity: 0.4;
+        }
+
+        .tc-fit {
+            margin-left: auto;
+        }
+
+        .tc-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            margin-bottom: 28px;
+        }
+
+        .tc-stat {
+            text-align: center;
+            padding: 20px;
+            border-radius: var(--radius-sm);
+            background: rgba(0, 0, 0, 0.02);
+            border: 1px solid rgba(0, 0, 0, 0.03);
+        }
+
+        .tc-stat .val {
+            font-family: var(--serif);
+            font-size: 1.6rem;
+            color: var(--ink);
+        }
+
+        .tc-stat .lbl {
+            font-size: 0.68rem;
+            color: var(--ink-4);
+            margin-top: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .learn-unlearn {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .lu-box {
+            padding: 24px;
+            border-radius: var(--radius-sm);
+        }
+
+        .lu-learn {
+            background: rgba(42, 124, 95, 0.04);
+            border: 1px solid rgba(42, 124, 95, 0.1);
+        }
+
+        .lu-unlearn {
+            background: rgba(184, 66, 51, 0.03);
+            border: 1px solid rgba(184, 66, 51, 0.08);
+        }
+
+        .lu-box h5 {
+            font-size: 0.68rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .lu-learn h5 {
+            color: var(--green);
+        }
+
+        .lu-unlearn h5 {
+            color: var(--red);
+        }
+
+        .lu-box li {
+            font-size: 0.84rem;
+            color: var(--ink-2);
+            margin-bottom: 8px;
+            list-style: none;
+            padding-left: 20px;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        .lu-learn li::before {
+            content: '+';
+            color: var(--green);
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .lu-unlearn li::before {
+            content: '−';
+            color: var(--red);
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .cert-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 10px 0;
+        }
+
+        .cert-tag {
+            padding: 5px 14px;
+            border-radius: 100px;
+            font-size: 0.74rem;
+            font-weight: 500;
+            background: var(--accent-soft);
+            color: var(--accent);
+            border: 1px solid rgba(26, 107, 90, 0.08);
+        }
+
+        .cert-tag.needed {
+            background: var(--warm-soft);
+            color: var(--warm);
+            border-color: rgba(193, 127, 62, 0.08);
+        }
+
+        /* ═══ CTA BUTTON ═══ */
+        .cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            border-radius: 100px;
+            background: var(--accent);
+            color: #fff;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-decoration: none;
+            letter-spacing: 0.3px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta:hover {
+            background: #15584a;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(26, 107, 90, 0.2);
+        }
+
+        .cta svg {
+            width: 16px;
+            height: 16px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+        }
+
+        /* ═══ SOURCE GRID ═══ */
+        .source-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .source-item {
+            padding: 24px;
+            border-radius: var(--radius-sm);
+            background: rgba(255, 255, 255, 0.35);
+            border: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .source-item h5 {
+            font-family: var(--serif);
+            font-size: 0.95rem;
+            margin-bottom: 6px;
+        }
+
+        .source-item p {
+            font-size: 0.78rem;
+            color: var(--ink-3);
+            line-height: 1.5;
+        }
+
+        .source-item .source-type {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--ink-4);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        @media(max-width:900px) {
+            .source-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media(max-width:600px) {
+            .source-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ═══ FOOTER ═══ */
+        footer {
+            padding: 56px 0;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            text-align: center;
+            color: var(--ink-4);
+            font-size: 0.8rem;
+        }
+
+        /* ═══ ANIMATIONS ═══ */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Staggered bento children */
+        .bento .glass {
+            opacity: 0;
+            transform: translateY(40px) scale(0.97);
+            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .bento.visible .glass:nth-child(1) {
+            transition-delay: 0s;
+        }
+
+        .bento.visible .glass:nth-child(2) {
+            transition-delay: 0.1s;
+        }
+
+        .bento.visible .glass:nth-child(3) {
+            transition-delay: 0.2s;
+        }
+
+        .bento.visible .glass:nth-child(4) {
+            transition-delay: 0.3s;
+        }
+
+        .bento.visible .glass {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        /* Hero text reveal */
+        .hero h1 {
+            overflow: hidden;
+        }
+
+        .hero h1 .line {
+            display: block;
+            opacity: 0;
+            transform: translateY(100%);
+            animation: textReveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .hero h1 .line:nth-child(2) {
+            animation-delay: 0.15s;
+        }
+
+        @keyframes textReveal {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Hero metrics counter fade */
+        .metric {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .metric.counted {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .metric:nth-child(2).counted {
+            transition-delay: 0.1s;
+        }
+
+        .metric:nth-child(3).counted {
+            transition-delay: 0.2s;
+        }
+
+        .metric:nth-child(4).counted {
+            transition-delay: 0.3s;
+        }
+
+        /* Section title slide in */
+        .section-title {
+            overflow: hidden;
+        }
+
+        .section-title .title-inner {
+            display: block;
+            opacity: 0;
+            transform: translateY(100%);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .section-title.visible .title-inner {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ═══ RESPONSIVE ═══ */
+        @media(max-width:900px) {
+
+            .bento-4,
+            .bento-3 {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .bento-item.span-2 {
+                grid-column: span 1;
+            }
+
+            .learn-unlearn,
+            .tc-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-metrics {
+                flex-wrap: wrap;
+                gap: 32px;
+            }
+
+            nav .nav-links {
+                display: none;
+            }
+
+            .flow-row {
+                flex-direction: column;
+            }
+
+            .flow-step::after {
+                display: none;
+            }
+        }
+
+        @media(max-width:600px) {
+
+            .bento-4,
+            .bento-3,
+            .bento-2 {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 80px 0;
+            }
+
+            .hero-metrics {
+                gap: 24px;
+            }
+        }
+
+        @media print {
+
+            .ambient,
+            body::after {
+                display: none;
+            }
+
+            nav {
+                position: static;
+            }
+
+            .glass {
+                backdrop-filter: none;
+                background: rgba(0, 0, 0, 0.02);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="ambient">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <nav>
+        <div class="nav-logo">Power<span>Techs</span></div>
+        <div class="nav-links">
+            <a href="#problem">Problem</a>
+            <a href="#approach">Approach</a>
+            <a href="#data">Data</a>
+            <a href="#outlook">2035 Outlook</a>
+            <a href="#transitions">Transitions</a>
+            <a href="#sources">Sources</a>
+        </div>
+    </nav>
+
+    <!-- ═══════════════════ HERO ═══════════════════ -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-eyebrow"><span class="pulse"></span> Stakeholder Briefing · February 2026</div>
+                <h1>
+                    <span class="line">The 10-Year</span>
+                    <span class="line"><em>Workforce Outlook</em></span>
+                </h1>
+                <p>89 emerging tasks. 60 technology trends. 26 existing certifications.<br>Here's where they stop
+                    matching.</p>
+                <a href="analysis.html" class="cta" style="margin-top:8px;">View Full Analysis <svg viewBox="0 0 24 24">
+                        <path d="M5 12h14m-6-6 6 6-6 6" />
+                    </svg></a>
+            </div>
+            <div class="hero-metrics">
+                <div class="metric">
+                    <div class="num" data-target="89">0</div>
+                    <div class="label">Emerging Tasks</div>
+                </div>
+                <div class="metric">
+                    <div class="num" data-target="60">0</div>
+                    <div class="label">Tech Trends</div>
+                </div>
+                <div class="metric">
+                    <div class="num" data-target="26">0</div>
+                    <div class="label">Today's Certs</div>
+                </div>
+                <div class="metric">
+                    <div class="num" data-target="3">0</div>
+                    <div class="label">Time Horizons</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════ PROBLEM ═══════════════════ -->
+    <section id="problem">
+        <div class="container">
+            <div class="eyebrow reveal">The Challenge</div>
+            <h2 class="section-title reveal"><span class="title-inner">Why Workforce Planning Fails</span></h2>
+            <p class="section-desc reveal">Traditional approaches overwhelm employers with data they can't act on.</p>
+            <div class="bento bento-4 reveal">
+                <div class="glass bento-item">
+                    <div class="item-icon icon-accent"><svg viewBox="0 0 24 24">
+                            <path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2" />
+                            <rect x="9" y="3" width="6" height="4" rx="1" />
+                        </svg></div>
+                    <h4>Too Many Tasks</h4>
+                    <p>Hundreds of thousands of individual job tasks. A list of 50 new ones is overwhelming and useless
+                        to a hiring manager.</p>
+                </div>
+                <div class="glass bento-item">
+                    <div class="item-icon icon-purple"><svg viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="9" />
+                            <path d="M12 3v4m0 10v4M3 12h4m10 0h4" />
+                        </svg></div>
+                    <h4>Too Far Away</h4>
+                    <p>Employers don't hire for 2035. They need to know who can start next month and what training
+                        bridges the gap.</p>
+                </div>
+                <div class="glass bento-item">
+                    <div class="item-icon icon-warm"><svg viewBox="0 0 24 24">
+                            <path d="M3 21h18M5 21V7l4 4V7l4 4V3h6v18" />
+                        </svg></div>
+                    <h4>Too Broad</h4>
+                    <p>A solar installer and an offshore driller both work in "energy" but share almost zero skills.
+                        Labels are meaningless.</p>
+                </div>
+                <div class="glass bento-item">
+                    <div class="item-icon icon-red"><svg viewBox="0 0 24 24">
+                            <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
+                            <path d="M9 9h.01M15 9h.01M8 14s1.5 2 4 2 4-2 4-2" />
+                        </svg></div>
+                    <h4>Wrong Language</h4>
+                    <p>HR thinks in certifications, licenses, and union cards — not abstract "competencies" from
+                        academic frameworks.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════ APPROACH ═══════════════════ -->
+    <section id="approach" style="background:var(--bg-alt);">
+        <div class="container">
+            <div class="eyebrow reveal">Our Approach</div>
+            <h2 class="section-title reveal"><span class="title-inner">Certification Buckets</span></h2>
+            <p class="section-desc reveal">Instead of listing tasks, we group them into what employers actually check
+                for.</p>
+            <div class="flow-row reveal">
+                <div class="flow-step">
+                    <div class="step-num">Step 01</div>
+                    <div class="step-title">Granular Tasks</div>
+                    <div class="step-desc">"Install 480V 3-phase<br>panel per NEC code"</div>
+                </div>
+                <div class="flow-step">
+                    <div class="step-num">Step 02</div>
+                    <div class="step-title">Certification Bucket</div>
+                    <div class="step-desc">Journeyman Electrician<br>License (State Board)</div>
+                </div>
+                <div class="flow-step">
+                    <div class="step-num">Step 03</div>
+                    <div class="step-title">Hire / Train</div>
+                    <div class="step-desc">"Does this candidate<br>have the cert? Yes / No."</div>
+                </div>
+            </div>
+            <div class="bento bento-2 reveal" style="margin-top:32px;">
+                <div class="glass bento-item">
+                    <div class="item-icon icon-accent"><svg viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10" />
+                            <circle cx="12" cy="12" r="6" />
+                            <circle cx="12" cy="12" r="2" />
+                        </svg></div>
+                    <h4>One Cert = Many Tasks</h4>
+                    <p>A single CDL buckets dozens of tasks — driving, inspections, load securing, log compliance — into
+                        one testable, verifiable credential an employer checks in seconds.</p>
+                </div>
+                <div class="glass bento-item">
+                    <div class="item-icon icon-green"><svg viewBox="0 0 24 24">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                            <circle cx="9" cy="7" r="4" />
+                            <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+                        </svg></div>
+                    <h4>Worker Archetypes</h4>
+                    <p>Real worker profiles — Military Logistics Specialist, Oil Refinery Operator, Coal Miner — each
+                        with transferable skills and habits they must unlearn.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════ CERT DB ═══════════════════ -->
+    <section id="data">
+        <div class="container">
+            <div class="eyebrow reveal">The Data</div>
+            <h2 class="section-title reveal"><span class="title-inner">Certification Database</span></h2>
+            <p class="section-desc reveal">26 real-world certifications sourced from official licensing boards.</p>
+            <div class="glass table-wrap reveal">
+                <table class="glass-table">
+                    <thead>
+                        <tr>
+                            <th>Certification</th>
+                            <th>Authority</th>
+                            <th>Industries</th>
+                            <th>Tasks</th>
+                            <th>Union</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>CDL — Class A</td>
+                            <td>State DMV / FMCSA</td>
+                            <td>Construction, Transport, Energy</td>
+                            <td>5</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>OSHA 30-Hour</td>
+                            <td>OSHA / DOL</td>
+                            <td>Construction, Utilities, Mfg</td>
+                            <td>6</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>Journeyman Electrician</td>
+                            <td>State Licensing Board</td>
+                            <td>Construction, Utilities</td>
+                            <td>6</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>AWS Certified Welder</td>
+                            <td>American Welding Society</td>
+                            <td>Construction, Mfg, Energy</td>
+                            <td>4</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>PEC SafeLand</td>
+                            <td>PEC Safety</td>
+                            <td>Energy (All Sub-Sectors)</td>
+                            <td>4</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>HAZWOPER 40-Hour</td>
+                            <td>OSHA (29 CFR 1910.120)</td>
+                            <td>Energy Downstream, Env</td>
+                            <td>5</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>NCCER Crane Operator</td>
+                            <td>NCCER / NCCCO</td>
+                            <td>Construction, Energy</td>
+                            <td>5</td>
+                            <td><span class="badge badge-accent">Yes</span></td>
+                        </tr>
+                        <tr>
+                            <td>FAA Part 107</td>
+                            <td>FAA</td>
+                            <td>Construction, Energy, Transport</td>
+                            <td>4</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>TWIC Card</td>
+                            <td>TSA / USCG</td>
+                            <td>Transport, Energy Downstream</td>
+                            <td>3</td>
+                            <td>—</td>
+                        </tr>
+                        <tr>
+                            <td>HazMat Endorsement (CDL)</td>
+                            <td>State DMV / TSA</td>
+                            <td>Transport, Energy</td>
+                            <td>4</td>
+                            <td>—</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════ INDUSTRIES ═══════════════════ -->
+    <section id="industries" style="background:var(--bg-alt);">
+        <div class="container">
+            <div class="eyebrow reveal">Disaggregation</div>
+            <h2 class="section-title reveal"><span class="title-inner">12 Industry Sub-Sectors</span></h2>
+            <p class="section-desc reveal">Construction, Energy, and Transportation — each disaggregated into distinct
+                labour markets.</p>
+            <div class="bento bento-3 reveal">
+                <div class="glass bento-item row-2 table-wrap">
+                    <div style="padding:28px 28px 14px;">
+                        <h4>Construction — 5 sub-sectors</h4>
+                    </div>
+                    <table class="glass-table">
+                        <thead>
+                            <tr>
+                                <th>Sub-Sector</th>
+                                <th>Union Density</th>
+                                <th>Key Certs</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Residential</td>
+                                <td>15%</td>
+                                <td>OSHA-10, GC, Elec/Plumb</td>
+                            </tr>
+                            <tr>
+                                <td>Commercial</td>
+                                <td>35%</td>
+                                <td>OSHA-30, PMP, BIM, LEED</td>
+                            </tr>
+                            <tr>
+                                <td>Heavy &amp; Civil</td>
+                                <td>55%</td>
+                                <td>CDL, Crane, Welder</td>
+                            </tr>
+                            <tr>
+                                <td>Data Center</td>
+                                <td>45%</td>
+                                <td>Master Elec, PMP, BIM</td>
+                            </tr>
+                            <tr>
+                                <td>Modular / Prefab</td>
+                                <td>20%</td>
+                                <td>OSHA-10, Elec, Crane</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="glass bento-item table-wrap">
+                    <div style="padding:28px 28px 14px;">
+                        <h4>Energy — 4 sub-sectors</h4>
+                    </div>
+                    <table class="glass-table">
+                        <thead>
+                            <tr>
+                                <th>Sub-Sector</th>
+                                <th>Union</th>
+                                <th>Key Certs</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Upstream</td>
+                                <td>10%</td>
+                                <td>SafeLand, BOSIET, H2S</td>
+                            </tr>
+                            <tr>
+                                <td>Midstream</td>
+                                <td>20%</td>
+                                <td>API 1169, Pipeline OQ</td>
+                            </tr>
+                            <tr>
+                                <td>Downstream</td>
+                                <td>30%</td>
+                                <td>HAZWOPER, SafeLand</td>
+                            </tr>
+                            <tr>
+                                <td>Utilities</td>
+                                <td>50%</td>
+                                <td>OSHA-10/30, CDL-A</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="glass bento-item table-wrap">
+                    <div style="padding:28px 28px 14px;">
+                        <h4>Transportation — 3 sub-sectors</h4>
+                    </div>
+                    <table class="glass-table">
+                        <thead>
+                            <tr>
+                                <th>Sub-Sector</th>
+                                <th>Union</th>
+                                <th>Key Certs</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Long-haul Trucking</td>
+                                <td>25%</td>
+                                <td>CDL-A, HazMat, TWIC</td>
+                            </tr>
+                            <tr>
+                                <td>Last-mile / Urban</td>
+                                <td>15%</td>
+                                <td>CDL-B, DOT Medical</td>
+                            </tr>
+                            <tr>
+                                <td>Rail &amp; Intermodal</td>
+                                <td>80%</td>
+                                <td>FRA Conductor, Switchman</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════ 2035 OUTLOOK ═══════════════════ -->
+    <section id="outlook" style="background:var(--bg-alt);">
+        <div class="container">
+            <div class="eyebrow reveal">The Finding</div>
+            <h2 class="section-title reveal"><span class="title-inner">The 2035 Outlook</span></h2>
+            <p class="section-desc reveal">89 validated emerging tasks generated across 12 sub-sectors. Here's where
+                today's certifications stop covering what's coming.</p>
+
+            <!-- ─── Emerging Task Landscape ─── -->
+            <div class="glass reveal" style="padding:32px; margin-bottom:24px;">
+                <h4 style="font-family:var(--serif); font-size:1.1rem; margin-bottom:20px;">Emerging Tasks by Subsector
+                    & Time Horizon</h4>
+                <div class="table-wrap">
+                    <table class="glass-table">
+                        <thead>
+                            <tr>
+                                <th>Subsector</th>
+                                <th>Near (2025–27)</th>
+                                <th>Mid (2027–30)</th>
+                                <th>Long (2030–35)</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Energy — Utilities</td>
+                                <td>5</td>
+                                <td>4</td>
+                                <td>3</td>
+                                <td><strong>12</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Construction — Commercial</td>
+                                <td>5</td>
+                                <td>3</td>
+                                <td>1</td>
+                                <td><strong>9</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Construction — Heavy & Civil</td>
+                                <td>4</td>
+                                <td>3</td>
+                                <td>2</td>
+                                <td><strong>9</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Construction — Residential</td>
+                                <td>4</td>
+                                <td>2</td>
+                                <td>2</td>
+                                <td><strong>8</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Energy — Upstream</td>
+                                <td>3</td>
+                                <td>3</td>
+                                <td>2</td>
+                                <td><strong>8</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Energy — Downstream</td>
+                                <td>4</td>
+                                <td>2</td>
+                                <td>2</td>
+                                <td><strong>8</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Transportation — Rail & Intermodal</td>
+                                <td>4</td>
+                                <td>2</td>
+                                <td>2</td>
+                                <td><strong>8</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Transportation — Long-haul</td>
+                                <td>3</td>
+                                <td>3</td>
+                                <td>1</td>
+                                <td><strong>7</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Construction — Data Center</td>
+                                <td>2</td>
+                                <td>2</td>
+                                <td>1</td>
+                                <td><strong>5</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Construction — Modular & Prefab</td>
+                                <td>3</td>
+                                <td>2</td>
+                                <td>0</td>
+                                <td><strong>5</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Energy — Midstream</td>
+                                <td>3</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td><strong>5</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Transportation — Last-mile</td>
+                                <td>2</td>
+                                <td>2</td>
+                                <td>1</td>
+                                <td><strong>5</strong></td>
+                            </tr>
+                            <tr style="background:var(--accent-soft); font-weight:600;">
+                                <td>Total</td>
+                                <td>45</td>
+                                <td>32</td>
+                                <td>12</td>
+                                <td><strong>89</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- ─── Technology Trend Clusters ─── -->
+            <div class="glass reveal" style="padding:32px; margin-bottom:24px;">
+                <h4 style="font-family:var(--serif); font-size:1.1rem; margin-bottom:16px;">Top Technology Trends
+                    Driving Emerging Tasks</h4>
+                <p style="font-size:0.88rem; color:var(--ink-3); margin-bottom:20px;">Each trend generates tasks that no
+                    existing certification currently covers.</p>
+                <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                    <span class="badge badge-accent" style="padding:8px 16px; font-size:0.78rem;">Digital Twins · 4
+                        tasks</span>
+                    <span class="badge badge-accent" style="padding:8px 16px; font-size:0.78rem;">Hydrogen & Fuel Cells
+                        · 4 tasks</span>
+                    <span class="badge badge-blue" style="padding:8px 16px; font-size:0.78rem;">Autonomous Vehicles · 3
+                        tasks</span>
+                    <span class="badge badge-blue" style="padding:8px 16px; font-size:0.78rem;">Industrial IoT · 3
+                        tasks</span>
+                    <span class="badge badge-blue" style="padding:8px 16px; font-size:0.78rem;">Predictive Analytics · 3
+                        tasks</span>
+                    <span class="badge badge-blue" style="padding:8px 16px; font-size:0.78rem;">Advanced Composites · 3
+                        tasks</span>
+                    <span class="badge badge-blue" style="padding:8px 16px; font-size:0.78rem;">Computer Vision · 3
+                        tasks</span>
+                    <span class="badge badge-purple" style="padding:8px 16px; font-size:0.78rem;">Carbon Capture · 2
+                        tasks</span>
+                    <span class="badge badge-purple" style="padding:8px 16px; font-size:0.78rem;">Battery Storage · 2
+                        tasks</span>
+                    <span class="badge badge-purple" style="padding:8px 16px; font-size:0.78rem;">Liquid Cooling · 2
+                        tasks</span>
+                    <span class="badge badge-purple" style="padding:8px 16px; font-size:0.78rem;">Nanomaterials · 2
+                        tasks</span>
+                    <span class="badge badge-warm" style="padding:8px 16px; font-size:0.78rem;">+ 49 more trends</span>
+                </div>
+            </div>
+
+            <!-- ─── THE CERTIFICATION GAP ─── -->
+            <div class="glass reveal" style="padding:32px;">
+                <h4 style="font-family:var(--serif); font-size:1.1rem; margin-bottom:8px;">The Certification Gap</h4>
+                <p style="font-size:0.88rem; color:var(--ink-3); margin-bottom:24px;">These technology trends generate
+                    dozens of validated emerging tasks — but <strong>no existing certification covers the required
+                        skills</strong>. This is the gap.</p>
+                <div class="table-wrap">
+                    <table class="glass-table">
+                        <thead>
+                            <tr>
+                                <th>Technology Trend</th>
+                                <th>Tasks</th>
+                                <th>Sectors Affected</th>
+                                <th>Existing Cert?</th>
+                                <th>Uncovered Skills</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Digital Twins</strong></td>
+                                <td>4</td>
+                                <td>Construction, Energy, Transport</td>
+                                <td><span class="badge badge-red">None</span></td>
+                                <td>4D simulation, point-cloud variance analysis, virtual ESD rehearsal</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Hydrogen & Fuel Cells</strong></td>
+                                <td>4</td>
+                                <td>Energy, Transport</td>
+                                <td><span class="badge badge-red">None</span></td>
+                                <td>Cryogenic fluid handling, 700-bar vessel inspection, PEM fuel cell commissioning
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><strong>Autonomous Vehicles</strong></td>
+                                <td>3</td>
+                                <td>Construction, Transport</td>
+                                <td><span class="badge badge-red">None</span></td>
+                                <td>Remote teleoperation, fleet geofencing, V2V platoon management</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Liquid Cooling Systems</strong></td>
+                                <td>2</td>
+                                <td>Construction (Data Center)</td>
+                                <td><span class="badge badge-red">None</span></td>
+                                <td>Dielectric fluid handling, immersion tank maintenance, zero-leak tolerance</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Carbon Capture & Sequestration</strong></td>
+                                <td>2</td>
+                                <td>Energy</td>
+                                <td><span class="badge badge-red">None</span></td>
+                                <td>Amine solvent management, supercritical CO₂ compression, DAC operations</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Computer Vision / Edge AI</strong></td>
+                                <td>3</td>
+                                <td>Construction, Energy, Transport</td>
+                                <td><span class="badge badge-red">None</span></td>
+                                <td>ML model tuning, human-in-the-loop annotation, optical gas imaging</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Advanced Composites</strong></td>
+                                <td>3</td>
+                                <td>Construction, Energy, Transport</td>
+                                <td><span class="badge badge-red">None</span></td>
+                                <td>CFRP tendon tensioning, composite pipeline wrapping, 3D-printed patching</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Swarm Robotics & Cobots</strong></td>
+                                <td>2</td>
+                                <td>Construction</td>
+                                <td><span class="badge badge-red">None</span></td>
+                                <td>Multi-agent fleet orchestration, cobot load-sensing coordination</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Smart Grid / VPPs</strong></td>
+                                <td>3</td>
+                                <td>Energy — Utilities</td>
+                                <td><span class="badge badge-red">None</span></td>
+                                <td>Bi-directional inverter configuration, V2G management, DER aggregation</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Zero Trust / OT Security</strong></td>
+                                <td>2</td>
+                                <td>Energy, Construction</td>
+                                <td><span class="badge badge-warm">Partial — IT only</span></td>
+                                <td>Air-gapped OT networks, biometric access for SCADA, chiller MFA</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div
+                    style="margin-top:24px; padding:20px; background:var(--accent-soft); border-radius:var(--radius-sm); border:1px solid rgba(26,107,90,0.15);">
+                    <p style="font-size:0.9rem; color:var(--accent); font-weight:600; margin-bottom:6px;">The Takeaway
+                    </p>
+                    <p style="font-size:0.88rem; color:var(--ink-2); line-height:1.7;">89 validated emerging tasks
+                        cluster around technology trends that <strong>no current certification covers</strong>. The
+                        credentialing system hasn't caught up. Policymakers, employers, and training providers must
+                        decide: do we create new credentials, expand existing ones, or accept a growing skills gap?</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════ TRANSITIONS TABLE ═══════════════════ -->
+    <section id="transitions">
+        <div class="container">
+            <div class="eyebrow reveal">Pathways</div>
+            <h2 class="section-title reveal"><span class="title-inner">10 Workforce Transitions</span></h2>
+            <p class="section-desc reveal">Every transition modeled with certification gaps, cost, and timeline.</p>
+            <div class="glass table-wrap reveal">
+                <table class="glass-table">
+                    <thead>
+                        <tr>
+                            <th>From</th>
+                            <th>To</th>
+                            <th>Fit</th>
+                            <th>Certs</th>
+                            <th>Cost</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Military Logistics</td>
+                            <td>Heavy Truck Driver</td>
+                            <td><span class="badge badge-green">95%</span></td>
+                            <td>1</td>
+                            <td>$75</td>
+                            <td>2 mo</td>
+                        </tr>
+                        <tr>
+                            <td>Military Logistics</td>
+                            <td>Equipment Operator</td>
+                            <td><span class="badge badge-green">85%</span></td>
+                            <td>2</td>
+                            <td>$8,075</td>
+                            <td>6 mo</td>
+                        </tr>
+                        <tr>
+                            <td>Military Logistics</td>
+                            <td>Construction Mgr</td>
+                            <td><span class="badge badge-blue">75%</span></td>
+                            <td>3</td>
+                            <td>$2,305</td>
+                            <td>12 mo</td>
+                        </tr>
+                        <tr>
+                            <td>Oil Refinery Op.</td>
+                            <td>Power Plant Op.</td>
+                            <td><span class="badge badge-green">90%</span></td>
+                            <td>0</td>
+                            <td>$0</td>
+                            <td>3 mo</td>
+                        </tr>
+                        <tr>
+                            <td>Oil Refinery Op.</td>
+                            <td>Electrician</td>
+                            <td><span class="badge badge-warm">60%</span></td>
+                            <td>3</td>
+                            <td>$575</td>
+                            <td>48 mo</td>
+                        </tr>
+                        <tr>
+                            <td>Pipeline Welder</td>
+                            <td>Construction Welder</td>
+                            <td><span class="badge badge-green">90%</span></td>
+                            <td>1</td>
+                            <td>$75</td>
+                            <td>2 mo</td>
+                        </tr>
+                        <tr>
+                            <td>Pipeline Welder</td>
+                            <td>Plumber / Pipefitter</td>
+                            <td><span class="badge badge-blue">75%</span></td>
+                            <td>2</td>
+                            <td>$575</td>
+                            <td>24 mo</td>
+                        </tr>
+                        <tr>
+                            <td>Coal Miner</td>
+                            <td>Wind Turbine Tech</td>
+                            <td><span class="badge badge-warm">65%</span></td>
+                            <td>2</td>
+                            <td>$75</td>
+                            <td>18 mo</td>
+                        </tr>
+                        <tr>
+                            <td>Coal Miner</td>
+                            <td>Solar PV Installer</td>
+                            <td><span class="badge badge-red">55%</span></td>
+                            <td>2</td>
+                            <td>$75</td>
+                            <td>12 mo</td>
+                        </tr>
+                        <tr>
+                            <td>Building Maint.</td>
+                            <td>Electrician</td>
+                            <td><span class="badge badge-blue">70%</span></td>
+                            <td>2</td>
+                            <td>$500</td>
+                            <td>36 mo</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════ DEEP DIVE 1 ═══════════════════ -->
+    <section id="deepdive1" style="background:var(--bg-alt);">
+        <div class="container">
+            <div class="eyebrow reveal">Deep Dive</div>
+            <h2 class="section-title reveal"><span class="title-inner">Military → Construction Manager</span></h2>
+            <p class="section-desc reveal">What it actually takes to move a veteran into construction management.</p>
+            <div class="glass transition-card reveal">
+                <div class="tc-header">
+                    <div class="tc-pill"><svg viewBox="0 0 24 24"
+                            style="width:16px;height:16px;fill:none;stroke:var(--ink-3);stroke-width:1.5">
+                            <path d="M12 15l-3-3h6l-3 3zm0-12l3 6H9l3-6z" />
+                            <path d="M12 15v7" />
+                        </svg><strong>Military Logistics</strong></div>
+                    <span class="tc-arrow">→</span>
+                    <div class="tc-pill"><svg viewBox="0 0 24 24"
+                            style="width:16px;height:16px;fill:none;stroke:var(--ink-3);stroke-width:1.5">
+                            <path d="M2 20h20M4 20V8l4 3V8l4 3V4h6v16" />
+                        </svg><strong>Construction Manager</strong></div>
+                    <span class="badge badge-blue tc-fit">75% Fit</span>
+                </div>
+                <div class="tc-stats">
+                    <div class="tc-stat">
+                        <div class="val">$2,305</div>
+                        <div class="lbl">Cert Cost</div>
+                    </div>
+                    <div class="tc-stat">
+                        <div class="val">12 mo</div>
+                        <div class="lbl">Timeline</div>
+                    </div>
+                    <div class="tc-stat">
+                        <div class="val">2 / 3</div>
+                        <div class="lbl">Held / Needed</div>
+                    </div>
+                </div>
+                <div style="margin-bottom:18px;">
+                    <p
+                        style="font-size:0.78rem; color:var(--ink-4); margin-bottom:8px; font-weight:600; text-transform:uppercase; letter-spacing:1px;">
+                        Already Holds</p>
+                    <div class="cert-tags"><span class="cert-tag">CDL — Class A</span><span class="cert-tag">First Aid /
+                            CPR</span></div>
+                </div>
+                <div style="margin-bottom:12px;">
+                    <p
+                        style="font-size:0.78rem; color:var(--ink-4); margin-bottom:8px; font-weight:600; text-transform:uppercase; letter-spacing:1px;">
+                        Needs</p>
+                    <div class="cert-tags"><span class="cert-tag needed">OSHA 30-Hour — $250</span><span
+                            class="cert-tag needed">PMP — $555</span><span class="cert-tag needed">GC License —
+                            $1,500</span></div>
+                </div>
+                <div class="learn-unlearn">
+                    <div class="lu-box lu-learn">
+                        <h5>Must Learn</h5>
+                        <ul>
+                            <li>Building codes (NEC, IBC)</li>
+                            <li>Union labor relations</li>
+                            <li>Construction estimating &amp; bidding</li>
+                            <li>Permit &amp; inspection scheduling</li>
+                        </ul>
+                    </div>
+                    <div class="lu-box lu-unlearn">
+                        <h5>Must Unlearn</h5>
+                        <ul>
+                            <li>Command-and-control style (too rigid)</li>
+                            <li>Threat-response instincts on job sites</li>
+                            <li>Prioritizing mission over safety breaks</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════ DEEP DIVE 2 ═══════════════════ -->
+    <section id="deepdive2">
+        <div class="container">
+            <div class="eyebrow reveal">Deep Dive</div>
+            <h2 class="section-title reveal"><span class="title-inner">Pipeline Welder → Construction Welder</span></h2>
+            <p class="section-desc reveal">A near-seamless transition — one cert and a code switch.</p>
+            <div class="glass transition-card reveal">
+                <div class="tc-header">
+                    <div class="tc-pill"><svg viewBox="0 0 24 24"
+                            style="width:16px;height:16px;fill:none;stroke:var(--ink-3);stroke-width:1.5">
+                            <path
+                                d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+                        </svg><strong>Pipeline Welder</strong></div>
+                    <span class="tc-arrow">→</span>
+                    <div class="tc-pill"><svg viewBox="0 0 24 24"
+                            style="width:16px;height:16px;fill:none;stroke:var(--ink-3);stroke-width:1.5">
+                            <path d="M2 20h20M4 20V8l4 3V8l4 3V4h6v16" />
+                        </svg><strong>Construction Welder</strong></div>
+                    <span class="badge badge-green tc-fit">90% Fit</span>
+                </div>
+                <div class="tc-stats">
+                    <div class="tc-stat">
+                        <div class="val">$75</div>
+                        <div class="lbl">Total Cost</div>
+                    </div>
+                    <div class="tc-stat">
+                        <div class="val">2 mo</div>
+                        <div class="lbl">Timeline</div>
+                    </div>
+                    <div class="tc-stat">
+                        <div class="val">4 / 1</div>
+                        <div class="lbl">Held / Needed</div>
+                    </div>
+                </div>
+                <div style="margin-bottom:18px;">
+                    <p
+                        style="font-size:0.78rem; color:var(--ink-4); margin-bottom:8px; font-weight:600; text-transform:uppercase; letter-spacing:1px;">
+                        Already Holds</p>
+                    <div class="cert-tags"><span class="cert-tag">AWS Welder</span><span class="cert-tag">PEC
+                            SafeLand</span><span class="cert-tag">CDL-A</span><span class="cert-tag">First
+                            Aid/CPR</span></div>
+                </div>
+                <div style="margin-bottom:12px;">
+                    <p
+                        style="font-size:0.78rem; color:var(--ink-4); margin-bottom:8px; font-weight:600; text-transform:uppercase; letter-spacing:1px;">
+                        Only Needs</p>
+                    <div class="cert-tags"><span class="cert-tag needed">OSHA 10-Hour — $75</span></div>
+                </div>
+                <div class="learn-unlearn">
+                    <div class="lu-box lu-learn">
+                        <h5>Must Learn</h5>
+                        <ul>
+                            <li>AWS D1.1 Structural Steel Code (vs API 1104)</li>
+                            <li>Moment-frame welding connections</li>
+                            <li>Multi-trade coordination on site</li>
+                        </ul>
+                    </div>
+                    <div class="lu-box lu-unlearn">
+                        <h5>Must Unlearn</h5>
+                        <ul>
+                            <li>Pipeline codes (API 1104) → switch to AWS D1.1</li>
+                            <li>Solo remote work style</li>
+                            <li>Linear project flow → multi-trade sequencing</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════ DATA CENTER ═══════════════════ -->
+    <section id="opportunity" style="background:var(--bg-alt);">
+        <div class="container">
+            <div class="eyebrow reveal">Emerging</div>
+            <h2 class="section-title reveal"><span class="title-inner">Data Center Construction</span></h2>
+            <p class="section-desc reveal">The fastest-growing sub-sector — and the hardest to staff.</p>
+            <div class="bento bento-3 reveal">
+                <div class="glass bento-item">
+                    <div class="item-icon icon-purple"><svg viewBox="0 0 24 24">
+                            <rect x="4" y="2" width="16" height="20" rx="2" />
+                            <path d="M9 22V7h6v15M9 10h6m-6 4h6" />
+                        </svg></div>
+                    <h4>Office → Data Center</h4>
+                    <p>Vacant skyscrapers being converted. Requires Master Electricians for high-voltage power
+                        distribution and cooling.</p>
+                </div>
+                <div class="glass bento-item">
+                    <div class="item-icon icon-accent"><svg viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="m9 12 2 2 4-4" />
+                        </svg></div>
+                    <h4>Liquid Cooling</h4>
+                    <p>AI workloads generate massive heat. Industry shifting to immersion cooling — creating demand for
+                        specialized pipefitters.</p>
+                </div>
+                <div class="glass bento-item">
+                    <div class="item-icon icon-green"><svg viewBox="0 0 24 24">
+                            <path
+                                d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z" />
+                            <path d="m3.3 7 8.7 5 8.7-5M12 22V12" />
+                        </svg></div>
+                    <h4>Modular Pods</h4>
+                    <p>Pre-fab containerized modules assembled in factories. Blends manufacturing skills with
+                        construction trades.</p>
+                </div>
+            </div>
+            <div class="bento bento-4 reveal" style="margin-top:16px;">
+                <div class="glass bento-item" style="text-align:center;">
+                    <p
+                        style="font-size:0.65rem; color:var(--ink-4); text-transform:uppercase; letter-spacing:1.5px; margin-bottom:6px;">
+                        Required</p>
+                    <h4>Master Electrician</h4>
+                    <p style="font-size:0.78rem;">480V+ 3-phase power</p>
+                </div>
+                <div class="glass bento-item" style="text-align:center;">
+                    <p
+                        style="font-size:0.65rem; color:var(--ink-4); text-transform:uppercase; letter-spacing:1.5px; margin-bottom:6px;">
+                        Required</p>
+                    <h4>OSHA 30-Hour</h4>
+                    <p style="font-size:0.78rem;">Supervisor safety</p>
+                </div>
+                <div class="glass bento-item" style="text-align:center;">
+                    <p
+                        style="font-size:0.65rem; color:var(--ink-4); text-transform:uppercase; letter-spacing:1.5px; margin-bottom:6px;">
+                        Required</p>
+                    <h4>PMP</h4>
+                    <p style="font-size:0.78rem;">Project management</p>
+                </div>
+                <div class="glass bento-item" style="text-align:center;">
+                    <p
+                        style="font-size:0.65rem; color:var(--ink-4); text-transform:uppercase; letter-spacing:1.5px; margin-bottom:6px;">
+                        Required</p>
+                    <h4>BIM / Revit</h4>
+                    <p style="font-size:0.78rem;">Digital coordination</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════ NEXT ═══════════════════ -->
+    <section id="next">
+        <div class="container">
+            <div class="eyebrow reveal">Roadmap</div>
+            <h2 class="section-title reveal"><span class="title-inner">What's Next</span></h2>
+            <p class="section-desc reveal">Building toward a full workforce intelligence product.</p>
+            <div class="bento bento-4 reveal">
+                <div class="glass bento-item">
+                    <div class="item-icon icon-accent"><svg viewBox="0 0 24 24">
+                            <path
+                                d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-3a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2z" />
+                            <path d="M9 14h.01M15 14h.01M9 18h6" />
+                        </svg></div>
+                    <h4>AI Matching</h4>
+                    <p>Connect our 651-task database to certification buckets automatically.</p>
+                </div>
+                <div class="glass bento-item">
+                    <div class="item-icon icon-green"><svg viewBox="0 0 24 24">
+                            <path d="M18 20V10M12 20V4M6 20v-6" />
+                        </svg></div>
+                    <h4>Employer Dashboard</h4>
+                    <p>Input a role → see best archetypes, cert gaps, and bridging costs.</p>
+                </div>
+                <div class="glass bento-item">
+                    <div class="item-icon icon-warm"><svg viewBox="0 0 24 24">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                            <circle cx="9" cy="7" r="4" />
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+                        </svg></div>
+                    <h4>Union Integration</h4>
+                    <p>Partner with IBEW, UA, Laborers' to validate pathways and apprenticeships.</p>
+                </div>
+                <div class="glass bento-item">
+                    <div class="item-icon icon-purple"><svg viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="10" />
+                            <path
+                                d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                        </svg></div>
+                    <h4>Geographic Layer</h4>
+                    <p>Regional permits, labor shortages, prevailing wages for location-specific recs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════ SOURCES ═══════════════════ -->
+    <section id="sources">
+        <div class="container">
+            <div class="eyebrow reveal">Methodology</div>
+            <h2 class="section-title reveal"><span class="title-inner">Sources &amp; Data</span></h2>
+            <p class="section-desc reveal">Every certification, cost, and timeline sourced from official authorities —
+                not conjecture.</p>
+            <div class="source-grid reveal">
+                <div class="source-item">
+                    <div class="source-type">Federal Agency</div>
+                    <h5>O*NET / BLS</h5>
+                    <p>Occupation profiles, SOC codes, task inventories. Bureau of Labor Statistics employment
+                        projections.</p>
+                </div>
+                <div class="source-item">
+                    <div class="source-type">Federal Agency</div>
+                    <h5>OSHA / DOL</h5>
+                    <p>10-Hour and 30-Hour safety training standards. HAZWOPER 40 requirements (29 CFR 1910.120).</p>
+                </div>
+                <div class="source-item">
+                    <div class="source-type">Licensing Authority</div>
+                    <h5>State Licensing Boards</h5>
+                    <p>Journeyman &amp; Master Electrician, Plumber, GC license requirements. Exam fees and hour
+                        minimums.</p>
+                </div>
+                <div class="source-item">
+                    <div class="source-type">Industry Body</div>
+                    <h5>NCCER / NCCCO</h5>
+                    <p>Crane operator certification, heavy equipment training standards, and apprenticeship frameworks.
+                    </p>
+                </div>
+                <div class="source-item">
+                    <div class="source-type">Industry Body</div>
+                    <h5>AWS / API</h5>
+                    <p>American Welding Society D1.1 structural codes. API 1104 pipeline welding. Certification costs
+                        and procedures.</p>
+                </div>
+                <div class="source-item">
+                    <div class="source-type">Industry Body</div>
+                    <h5>PMI / ISC2 / FAA</h5>
+                    <p>PMP certification costs. FAA Part 107 drone licensing. LEED accreditation from USGBC.</p>
+                </div>
+                <div class="source-item">
+                    <div class="source-type">Union</div>
+                    <h5>IBEW / UA / Laborers'</h5>
+                    <p>Apprenticeship durations, union density data, and prevailing wage structures by region.</p>
+                </div>
+                <div class="source-item">
+                    <div class="source-type">Safety</div>
+                    <h5>PEC Safety / Red Cross</h5>
+                    <p>SafeLand / RigPass orientation programs. First Aid / CPR / AED certification standards.</p>
+                </div>
+                <div class="source-item">
+                    <div class="source-type">Transportation</div>
+                    <h5>FMCSA / State DMV</h5>
+                    <p>CDL Class A &amp; B requirements, endorsement types, and commercial driving regulations.</p>
+                </div>
+                <div class="source-item">
+                    <div class="source-type">Emerging Tasks</div>
+                    <h5>ETD Methodology</h5>
+                    <p>89 emerging tasks generated via Gemini LLM, validated against O*NET redundancy, technical
+                        realism, and format suitability. 85.6% approval rate (104 generated, 15 rejected).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════ CLOSING ═══════════════════ -->
+    <section style="text-align:center; padding:140px 0; background:var(--bg-alt);">
+        <div class="container reveal">
+            <h2
+                style="font-family:var(--serif); font-size:clamp(2.2rem,4.5vw,3.5rem); font-weight:400; letter-spacing:-0.5px; margin-bottom:20px; line-height:1.1;">
+                Tasks Are Coming.<br><em style="color:var(--accent);">Certifications Aren't.</em>
+            </h2>
+            <p style="font-size:1.05rem; color:var(--ink-3); max-width:440px; margin:0 auto 40px; line-height:1.7;">
+                We don't just predict the future of work.<br>We show exactly where the credentialing system breaks.
+            </p>
+            <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
+                <span class="badge badge-accent" style="padding:8px 20px; font-size:0.8rem;">89 Emerging Tasks</span>
+                <span class="badge badge-blue" style="padding:8px 20px; font-size:0.8rem;">60 Tech Trends</span>
+                <span class="badge badge-warm" style="padding:8px 20px; font-size:0.8rem;">26 Today's Certs</span>
+                <span class="badge badge-red" style="padding:8px 20px; font-size:0.8rem;">10 Uncovered Gaps</span>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>PowerTechs · Workforce Transition Intelligence · 2026</p>
+        </div>
+    </footer>
+
+    <script>
+        // ═══ INTERSECTION OBSERVER (staggered reveals) ═══
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.12, rootMargin: '0px 0px -80px 0px' });
+        document.querySelectorAll('.reveal, .section-title, .bento').forEach(el => obs.observe(el));
+
+        // ═══ COUNTER ANIMATION ═══
+        const counterObs = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (!e.isIntersecting) return;
+                const metrics = e.target.querySelectorAll('.metric');
+                metrics.forEach(m => {
+                    m.classList.add('counted');
+                    const el = m.querySelector('.num');
+                    const target = +el.dataset.target;
+                    let current = 0;
+                    const step = Math.max(1, Math.floor(target / 30));
+                    const timer = setInterval(() => {
+                        current += step;
+                        if (current >= target) { current = target; clearInterval(timer); }
+                        el.textContent = current;
+                    }, 35);
+                });
+                counterObs.unobserve(e.target);
+            });
+        }, { threshold: 0.5 });
+        const heroMetrics = document.querySelector('.hero-metrics');
+        if (heroMetrics) counterObs.observe(heroMetrics);
+
+        // ═══ PARALLAX ORBS ═══
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    const y = window.scrollY;
+                    const orbs = document.querySelectorAll('.orb');
+                    orbs[0].style.transform = `translate(${Math.sin(y * 0.001) * 30}px, ${y * -0.08}px)`;
+                    orbs[1].style.transform = `translate(${Math.cos(y * 0.001) * 20}px, ${y * -0.05}px)`;
+                    orbs[2].style.transform = `translate(${Math.sin(y * 0.002) * 15}px, ${y * -0.03}px)`;
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+
+        // ═══ NAV SCROLL STATE ═══
+        const navEl = document.querySelector('nav');
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-links a');
+        window.addEventListener('scroll', () => {
+            navEl.classList.toggle('scrolled', window.scrollY > 60);
+            let current = '';
+            sections.forEach(s => { if (window.scrollY >= s.offsetTop - 200) current = s.id; });
+            navLinks.forEach(a => {
+                a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+            });
+        });
+    </script>
+</body>
+
+</html>
