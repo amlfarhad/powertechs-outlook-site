@@ -27,10 +27,10 @@
             --accent-light: #2a9d8f;
             --accent-soft: rgba(26, 107, 90, 0.08);
             --accent-glow: rgba(42, 157, 143, 0.12);
-            --warm: #c17f3e;
-            --warm-soft: rgba(193, 127, 62, 0.1);
-            --red: #b84233;
-            --red-soft: rgba(184, 66, 51, 0.08);
+            --warm: #a67232;
+            --warm-soft: rgba(166, 114, 50, 0.08);
+            --red: #a14034;
+            --red-soft: rgba(161, 64, 52, 0.08);
             --green: #2a7c5f;
             --green-soft: rgba(42, 124, 95, 0.08);
             --blue: #3a6ea5;
@@ -424,19 +424,20 @@
 
         .section-title {
             font-family: var(--serif);
-            font-size: clamp(2rem, 3.5vw, 3rem);
+            font-size: clamp(2.4rem, 4.5vw, 4rem);
             font-weight: 400;
-            letter-spacing: -0.5px;
+            letter-spacing: -1.5px;
             margin-bottom: 12px;
-            line-height: 1.1;
+            line-height: 1.05;
         }
 
         .section-desc {
             font-size: 1rem;
-            color: var(--ink-3);
+            color: var(--ink-4);
             max-width: 520px;
             margin-bottom: 56px;
             line-height: 1.7;
+            font-weight: 400;
         }
 
         /* ═══ TABLES ═══ */
@@ -989,6 +990,90 @@
             }
         }
     </style>
+
+    <style id="fast-track-styles">
+        .ft-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-left: 6px;
+            text-transform: uppercase;
+            vertical-align: middle;
+        }
+
+        .ft-test-out {
+            background: var(--green-soft);
+            color: var(--green);
+            border: 1px solid rgba(42, 124, 95, 0.15);
+        }
+
+        .ft-hybrid {
+            background: var(--warm-soft);
+            color: var(--warm);
+            border: 1px solid rgba(193, 127, 62, 0.15);
+        }
+
+        .ft-mandatory {
+            background: rgba(0, 0, 0, 0.05);
+            color: var(--ink-4);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .ft-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 16px 0;
+            border-top: 1px solid rgba(0, 0, 0, 0.04);
+            margin-top: 16px;
+        }
+
+        .ft-row-label {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--ink-4);
+            min-width: 130px;
+            padding-top: 3px;
+            letter-spacing: 1px;
+        }
+
+        .ft-row-value {
+            font-size: 0.88rem;
+            color: var(--ink-2);
+            flex: 1;
+        }
+
+        .ft-eligible {
+            color: var(--green);
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .ft-partial {
+            color: var(--warm);
+            font-weight: 700;
+        }
+
+        .ft-no {
+            color: var(--red);
+            font-weight: 700;
+        }
+
+        .ft-note {
+            font-size: 0.8rem;
+            color: var(--ink-3);
+            margin-top: 6px;
+            line-height: 1.6;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -1130,9 +1215,10 @@
                 </div>
                 <div class="glass bento-item">
                     <div class="item-icon icon-green"><svg viewBox="0 0 24 24">
-                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
                             <circle cx="9" cy="7" r="4" />
-                            <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
                         </svg></div>
                     <h4>Worker Archetypes</h4>
                     <p>Real worker profiles — Military Logistics Specialist, Oil Refinery Operator, Coal Miner — each
@@ -1531,14 +1617,16 @@
                                 <td><strong>Digital Twins</strong></td>
                                 <td>4</td>
                                 <td>Construction, Energy, Transport</td>
-                                <td><span class="badge badge-red">None</span></td>
+                                <td><span class="badge"
+                                        style="background:rgba(0,0,0,0.05); color:var(--ink-4);">GAP</span></td>
                                 <td>4D simulation, point-cloud variance analysis, virtual ESD rehearsal</td>
                             </tr>
                             <tr>
                                 <td><strong>Hydrogen & Fuel Cells</strong></td>
                                 <td>4</td>
                                 <td>Energy, Transport</td>
-                                <td><span class="badge badge-red">None</span></td>
+                                <td><span class="badge"
+                                        style="background:rgba(0,0,0,0.05); color:var(--ink-4);">GAP</span></td>
                                 <td>Cryogenic fluid handling, 700-bar vessel inspection, PEM fuel cell commissioning
                                 </td>
                             </tr>
@@ -1546,42 +1634,48 @@
                                 <td><strong>Autonomous Vehicles</strong></td>
                                 <td>3</td>
                                 <td>Construction, Transport</td>
-                                <td><span class="badge badge-red">None</span></td>
+                                <td><span class="badge"
+                                        style="background:rgba(0,0,0,0.05); color:var(--ink-4);">GAP</span></td>
                                 <td>Remote teleoperation, fleet geofencing, V2V platoon management</td>
                             </tr>
                             <tr>
                                 <td><strong>Liquid Cooling Systems</strong></td>
                                 <td>2</td>
                                 <td>Construction (Data Center)</td>
-                                <td><span class="badge badge-red">None</span></td>
+                                <td><span class="badge"
+                                        style="background:rgba(0,0,0,0.05); color:var(--ink-4);">GAP</span></td>
                                 <td>Dielectric fluid handling, immersion tank maintenance, zero-leak tolerance</td>
                             </tr>
                             <tr>
                                 <td><strong>Carbon Capture & Sequestration</strong></td>
                                 <td>2</td>
                                 <td>Energy</td>
-                                <td><span class="badge badge-red">None</span></td>
+                                <td><span class="badge"
+                                        style="background:rgba(0,0,0,0.05); color:var(--ink-4);">GAP</span></td>
                                 <td>Amine solvent management, supercritical CO₂ compression, DAC operations</td>
                             </tr>
                             <tr>
                                 <td><strong>Computer Vision / Edge AI</strong></td>
                                 <td>3</td>
                                 <td>Construction, Energy, Transport</td>
-                                <td><span class="badge badge-red">None</span></td>
+                                <td><span class="badge"
+                                        style="background:rgba(0,0,0,0.05); color:var(--ink-4);">GAP</span></td>
                                 <td>ML model tuning, human-in-the-loop annotation, optical gas imaging</td>
                             </tr>
                             <tr>
                                 <td><strong>Advanced Composites</strong></td>
                                 <td>3</td>
                                 <td>Construction, Energy, Transport</td>
-                                <td><span class="badge badge-red">None</span></td>
+                                <td><span class="badge"
+                                        style="background:rgba(0,0,0,0.05); color:var(--ink-4);">GAP</span></td>
                                 <td>CFRP tendon tensioning, composite pipeline wrapping, 3D-printed patching</td>
                             </tr>
                             <tr>
                                 <td><strong>Swarm Robotics & Cobots</strong></td>
                                 <td>2</td>
                                 <td>Construction</td>
-                                <td><span class="badge badge-red">None</span></td>
+                                <td><span class="badge"
+                                        style="background:rgba(0,0,0,0.05); color:var(--ink-4);">GAP</span></td>
                                 <td>Multi-agent fleet orchestration, cobot load-sensing coordination</td>
                             </tr>
                             <tr>
@@ -1630,6 +1724,7 @@
                             <th>Certs</th>
                             <th>Cost</th>
                             <th>Time</th>
+                            <th>Fast-Track?</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -1640,6 +1735,7 @@
                             <td>1</td>
                             <td>$75</td>
                             <td>2 mo</td>
+                            <td><span class="badge badge-green">FT ELIGIBLE</span></td>
                         </tr>
                         <tr>
                             <td>Military Logistics</td>
@@ -1648,6 +1744,8 @@
                             <td>2</td>
                             <td>$8,075</td>
                             <td>6 mo</td>
+                            <td><span class="badge"
+                                    style="background:rgba(0,0,0,0.05); color:var(--ink-4);">STANDARD</span></td>
                         </tr>
                         <tr>
                             <td>Military Logistics</td>
@@ -1656,6 +1754,7 @@
                             <td>3</td>
                             <td>$2,305</td>
                             <td>12 mo</td>
+                            <td><span class="badge badge-green">FT ELIGIBLE</span></td>
                         </tr>
                         <tr>
                             <td>Oil Refinery Op.</td>
@@ -1664,6 +1763,7 @@
                             <td>0</td>
                             <td>$0</td>
                             <td>3 mo</td>
+                            <td><span class="badge badge-green">FT ELIGIBLE</span></td>
                         </tr>
                         <tr>
                             <td>Oil Refinery Op.</td>
@@ -1672,6 +1772,8 @@
                             <td>3</td>
                             <td>$575</td>
                             <td>48 mo</td>
+                            <td><span class="badge"
+                                    style="background:rgba(0,0,0,0.05); color:var(--ink-4);">STANDARD</span></td>
                         </tr>
                         <tr>
                             <td>Pipeline Welder</td>
@@ -1680,6 +1782,7 @@
                             <td>1</td>
                             <td>$75</td>
                             <td>2 mo</td>
+                            <td><span class="badge badge-green">FT ELIGIBLE</span></td>
                         </tr>
                         <tr>
                             <td>Pipeline Welder</td>
@@ -1688,6 +1791,8 @@
                             <td>2</td>
                             <td>$575</td>
                             <td>24 mo</td>
+                            <td><span class="badge"
+                                    style="background:rgba(0,0,0,0.05); color:var(--ink-4);">STANDARD</span></td>
                         </tr>
                         <tr>
                             <td>Coal Miner</td>
@@ -1696,6 +1801,8 @@
                             <td>2</td>
                             <td>$75</td>
                             <td>18 mo</td>
+                            <td><span class="badge"
+                                    style="background:rgba(0,0,0,0.05); color:var(--ink-4);">STANDARD</span></td>
                         </tr>
                         <tr>
                             <td>Coal Miner</td>
@@ -1704,6 +1811,8 @@
                             <td>2</td>
                             <td>$75</td>
                             <td>12 mo</td>
+                            <td><span class="badge"
+                                    style="background:rgba(0,0,0,0.05); color:var(--ink-4);">STANDARD</span></td>
                         </tr>
                         <tr>
                             <td>Building Maint.</td>
@@ -1712,6 +1821,8 @@
                             <td>2</td>
                             <td>$500</td>
                             <td>36 mo</td>
+                            <td><span class="badge"
+                                    style="background:rgba(0,0,0,0.05); color:var(--ink-4);">STANDARD</span></td>
                         </tr>
                     </tbody>
                 </table>
@@ -1787,6 +1898,34 @@
                         </ul>
                     </div>
                 </div>
+                <div class="ft-row">
+                    <span class="ft-row-label">Pre-Assessment Value</span>
+                    <div class="ft-row-value">
+                        <span class="ft-eligible">✅ Fast-Track Eligible</span>
+                        <div class="ft-note">All 3 required certs allow self-study + written exam — no mandatory seat
+                            time.
+                            <ul
+                                style="margin:6px 0 0 0; padding-left:18px; font-size:11px; color:#94a3b8; line-height:1.8;">
+                                <li><strong>OSHA 30-Hour</strong> — 30 hrs online (OSHA-accepted). No bypass of seat
+                                    time, but fully self-paced.
+                                    <a href="https://www.osha.gov/training/outreach/construction" target="_blank"
+                                        style="color:#4ade80; margin-left:4px;">↗ OSHA.gov</a>
+                                </li>
+                                <li><strong>PMP</strong> — 35 hrs PM education (any accredited course) + 36 months
+                                    experience. Written exam only.
+                                    <a href="https://www.pmi.org/certifications/project-management-pmp/earn-the-pmp/pmp-application-process/qualifications"
+                                        target="_blank" style="color:#4ade80; margin-left:4px;">↗ PMI.org</a>
+                                </li>
+                                <li><strong>GC License (CSLB)</strong> — State exam + 4 yrs experience. No mandatory
+                                    coursework, but experience must be documented.
+                                    <a href="https://www.cslb.ca.gov/Contractors/Applicants/Get_Licensed/"
+                                        target="_blank" style="color:#4ade80; margin-left:4px;">↗ CSLB.ca.gov</a>
+                                    <span style="color:#fbbf24;"> ⚠ Hours vary by state — verify locally.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1830,8 +1969,8 @@
                         style="font-size:0.78rem; color:var(--ink-4); margin-bottom:8px; font-weight:600; text-transform:uppercase; letter-spacing:1px;">
                         Already Holds</p>
                     <div class="cert-tags"><span class="cert-tag">AWS Welder</span><span class="cert-tag">PEC
-                            SafeLand</span><span class="cert-tag">CDL-A</span><span class="cert-tag">First
-                            Aid/CPR</span></div>
+                            SafeLand</span><span class="cert-tag">CDL-A</span><span class="cert-tag">First Aid /
+                            CPR</span></div>
                 </div>
                 <div style="margin-bottom:12px;">
                     <p
@@ -1855,6 +1994,28 @@
                             <li>Solo remote work style</li>
                             <li>Linear project flow → multi-trade sequencing</li>
                         </ul>
+                    </div>
+                </div>
+                <div class="ft-row">
+                    <span class="ft-row-label">Pre-Assessment Value</span>
+                    <div class="ft-row-value">
+                        <span class="ft-eligible">✅ Fast-Track Eligible</span>
+                        <div class="ft-note">Only cert needed is <strong>OSHA 10-Hour</strong> — 10 hrs online, no
+                            mandatory seat time beyond course completion.
+                            <ul
+                                style="margin:6px 0 0 0; padding-left:18px; font-size:11px; color:#94a3b8; line-height:1.8;">
+                                <li>OSHA 10 is available fully online via OSHA-authorized providers (e.g., 360training,
+                                    IACET-accredited courses).
+                                    <a href="https://www.osha.gov/training/outreach/construction" target="_blank"
+                                        style="color:#4ade80; margin-left:4px;">↗ OSHA.gov</a>
+                                </li>
+                                <li>A pre-assessment confirming existing fall protection &amp; hazard awareness
+                                    knowledge can identify candidates who pass with minimal prep time.</li>
+                                <li><span style="color:#fbbf24;">⚠ Some union sites and state agencies require in-person
+                                        delivery — verify with the specific employer before assuming online fulfills
+                                        their requirement.</span></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -2039,8 +2200,58 @@
                         realism, and format suitability. 85.6% approval rate (104 generated, 15 rejected).</p>
                 </div>
             </div>
+
+            <!-- ─── Pathway Classification Methodology ─── -->
+            <div class="glass reveal"
+                style="padding:24px; margin-top:32px; border-left: 3px solid var(--warm); background:rgba(255,255,255,0.25);">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+                    <h4 style="font-family:var(--serif); font-size:0.95rem; color:var(--warm);">Methodology: Fast-Track
+                        Classification</h4>
+                    <span
+                        style="font-size:0.65rem; color:var(--ink-4); text-transform:uppercase; letter-spacing:1px;">Reference
+                        Guide v1.2</span>
+                </div>
+                <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; margin-bottom:16px;">
+                    <div
+                        style="padding:12px; background:rgba(255,255,255,0.3); border-radius:8px; border:1px solid rgba(0,0,0,0.03);">
+                        <div
+                            style="font-size:10px; font-weight:700; color:var(--green); text-transform:uppercase; letter-spacing:0.5px; margin-bottom:4px;">
+                            ✓ Test-Out</div>
+                        <p style="font-size:11px; color:var(--ink-3); line-height:1.5;">Direct exam/performance test. No
+                            coursework (CDL-A, AWS, NCCCO).</p>
+                    </div>
+                    <div
+                        style="padding:12px; background:rgba(255,255,255,0.3); border-radius:8px; border:1px solid rgba(0,0,0,0.03);">
+                        <div
+                            style="font-size:10px; font-weight:700; color:var(--warm); text-transform:uppercase; letter-spacing:0.5px; margin-bottom:4px;">
+                            ⚡ Hybrid / Waiver</div>
+                        <p style="font-size:11px; color:var(--ink-3); line-height:1.5;">Online allowed or experience
+                            credits accepted (OSHA 30, PMP).</p>
+                    </div>
+                    <div
+                        style="padding:12px; background:rgba(255,255,255,0.3); border-radius:8px; border:1px solid rgba(0,0,0,0.03);">
+                        <div
+                            style="font-size:10px; font-weight:700; color:var(--ink-4); text-transform:uppercase; letter-spacing:0.5px; margin-bottom:4px;">
+                            ⛔ Mandatory</div>
+                        <p style="font-size:11px; color:var(--ink-3); line-height:1.5;">Seat time/OJT required (IBEW
+                            Appr, BOSIET, H2S Alive).</p>
+                    </div>
+                </div>
+                <p
+                    style="font-size:0.7rem; color:var(--ink-4); line-height:1.5; border-top:1px solid rgba(0,0,0,0.05); padding-top:12px;">
+                    <strong>Caveat:</strong> Classifications are for California/Federal standards. Local union hall
+                    rules and state licenses vary. Always verify directly with
+                    <a href="https://www.fmcsa.dot.gov/" target="_blank"
+                        style="color:var(--accent); text-decoration:none;">FMCSA</a>,
+                    <a href="https://www.aws.org/" target="_blank"
+                        style="color:var(--accent); text-decoration:none;">AWS</a>, or
+                    <a href="https://www.osha.gov/" target="_blank"
+                        style="color:var(--accent); text-decoration:none;">OSHA</a> before advising.
+                </p>
+            </div>
         </div>
     </section>
+
 
     <!-- ═══════════════════ CLOSING ═══════════════════ -->
     <section style="text-align:center; padding:140px 0; background:var(--bg-alt);">
